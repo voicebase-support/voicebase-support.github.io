@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>APIPage2</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+	#bigFont {
+		font-size: 25px
+	}
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>	
+			    <a class="nav navbar-brand" ></a>
+            <img class="img-responsive" src="logo.png" style="height:30px; margin-top: 11px">
+			    </div>
+			 <div class="collapse navbar-collapse" id="myNavbar">
+			 <ul class="nav navbar-nav" id="bigFont">
+			<!--  <li><img class="img-responsive" src="logo.png" style="height:30px; margin-top: 11px"></li> -->
+			 <li><a href="index.html">Help Center</a></li>
+			 </ul>
+			<ul class="nav navbar-nav navbar-right">
+			      <!-- <li class="active"><a href="index.html">Home</a></li> -->
+			      <li><a href="http://info.voicebase.com/contact-sales">Talk to Sales</a></li>
+			      <li><a href="https://www.voicebase.com/talk-to-support/">Talk to Support</a></li>
+             <li><a href="https://apis.voicebase.com/developer-portal/#/">Developer Portal</a></li>
+             <li><a href="http://status.voicebase.com/">System Status</a></li>
+             <li><a href="https://www.voicebase.com">Visit VoiceBase.com</a></li>
+            
+
+            </ul>
+            </div>
+        </div>
+    </nav> 
+     <div class="container">
+        <div class="row">
+			<div class="col-md-12">
+			<h3 style="text-align: center">VoiceBase API</h3>
+				<hr>
+			</div> 
+	    </div>
+	    <div class="row">
+			<div class="col-md-1">
+			</div>
+          <div class="col-md-4">
+         
+          <h4>What languages are supported with the API?</h4>
+          <p><strong>English:</strong>
+            U.S. English (en-US) - default,
+             U.K. English (en-UK),
+           Australian English (en-AU)
+          <strong>Spanish:</strong>
+         Latin America (es-LA)
+         <strong>Portuguese:</strong>
+         Brazil (pt-BR). More on configuring language support is found <a href=http://voicebase.readthedocs.io/en/v2-beta/how-to-guides/languages.html>here.</a></p>
+          <h4>What file formats can be uploaded?</h4>
+          <p>Our total list of accepted formats includes:
+           *.mp3, *.mp4, *.flv, *.wmv, *.avi, *.mpeg, *.aac, *.aiff, *.au, *.ogg, *.3gp, *.flac, *.ra, *.m4a, *.wma, *.m4v, *.caf, *.cf, *.mov, *.mpg, *.webm, *.wav, *.asf, *.amr</p>
+          <h4>How does the API accept media?</h4>
+          <p>The API can accept urls to the media or the actual media as form data attachments.</p>
+          <h4>What is your output format for multi-channel?</h4>
+
+           <p>The JSON transcript would be like the example below, where 'w' is the word or speaker, 'e' and 's' are timestamps, 'c' is confidence, 'p' is position in the transcript, and 'm' is metadata information ("turn" reserved for speaker switches). This is a simple transcript where the caller says hi, then the agent says hi. We also have txt, srt, and other formats, but JSON is used most often; you can parse it and store or redisplay to make it 'plain'.
+
+         {
+          "w": "caller",
+         "e": 5560,
+            "s": 5160,
+            "c": 1,
+            "p": 1,
+            "m": "turn"
+          },
+          {
+            "w": "Hi",
+            "e": 5560,
+            "s": 5160,
+            "c": 0.012,
+            "p": 2
+          },
+          {
+            "w": "agent",
+            "e": 5670,
+            "s": 5560,
+            "c": 0.828,
+            "p": 3
+            "m": "turn"
+          },
+         {
+            "w": "Hi",
+            "e": 5670,
+            "s": 5560,
+            "c": 0.012,
+            "p": 4
+          },</p>
+          </div>
+          <div class="col-md-1">
+			</div>
+          <div class="col-md-4">
+          <h4>How do I get an API key?</h4>
+          <p>Request an API key by <a href="https://apis.voicebase.com/developer-portal/#/">signing up</a> for access.</p>
+          <br>
+          <h4>What can I do with the API?</h4>
+          <p>All VoiceBase features are available through the API. See our <a href="https://www.voicebase.com/products-features/">features and pricing page </a> for a full list of features.</p>
+          <br>
+          <h4>What if I'm not a developer?</h4>
+          <p>If you are a student or individual looking to transcribe less than 500 hours/month of content, visit our <a href="https://voicebase.com/explore/">web app </a>page to learn how VoiceBase can work for you.</p>
+          <br>
+          <h4>What is included in the Web SDK?</h4>
+          <p>The VoiceBase Web SDK contains our player plugin which wraps around many popular video players to display click-to-navigate transcript, keywords, and topics. This is written primarily in JavaScript and CSS. All Web SDK contents may be used free and at your disposal.</p>
+          <br>
+          </div>
+        </div>
+      </div>
+     </body>
+ </html>         

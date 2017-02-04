@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>GQ Page</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+	#bigFont {
+		font-size: 25px
+	}
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>	
+			    <a class="nav navbar-brand" ></a>
+			    <img class="img-responsive" src="logo.png" style="height:30px; margin-top: 11px">
+			    </div>
+			 <div class="collapse navbar-collapse" id="myNavbar">
+			 <ul class="nav navbar-nav" id="bigFont">
+			<!--  <li><img class="img-responsive" src="logo.png" style="height:30px; margin-top: 11px"></li> -->
+			 <li><a href="index.html">Help Center</a></li>
+			 </ul>
+			<ul class="nav navbar-nav navbar-right">      
+			      <li><a href="http://info.voicebase.com/contact-sales">Talk to Sales</a></li>
+			      <li><a href="https://www.voicebase.com/talk-to-support/">Talk to Support</a></li>
+             <li><a href="https://apis.voicebase.com/developer-portal/#/">Developer Portal</a></li>
+             <li><a href="http://status.voicebase.com/">System Status</a></li> 
+             <li><a href="https://www.voicebase.com">Visit VoiceBase.com</a></li>
+            </ul>
+            </div>
+        </div>
+    </nav> 
+      <div class="container">
+        <div class="row">
+			<div class="col-md-12">
+			<h3 style="text-align: center">General Questions</h3>
+				<hr>
+			</div> 
+	    </div>
+	    <div class="row">
+			<div class="col-md-1">
+			</div>
+          <div class="col-md-4">
+           <h4>Can my files be deleted after transcription?</h4>
+        <p>Yes, you have the option to delete files yourself. If and when you delete files all copies and any derivative material, transcripts, etc. are immediately and irretrievably deleted. </p>
+        <br>
+          <h4>How can I be sure my files will be kept private?</h4>
+          <p>Most of our customers are processing confidential material.
+
+Files uploaded to VoiceBase are private by default.
+They are stored inside a VPC (virtual private cloud, like a VPN)
+Our admin staff has limited access to check files when we detect a problem.
+All staff sign NDA's and are required to use two factor login to admin pages and separate login to the VPC.
+We need two passwords and two authenticator codes to access content.
+
+You do have the option to share files with others, such as your advisor.
+Sharing requires a specific action on your part.
+If you do choose to share files be sure that "Require login to view shares" is checked in the settings in My Account.
+
+Human transcripts do require that our transcribers listen to and type up your recordings.
+Our privacy policy does have some more generic language covering us in cases where the user shares files or chooses to make files public.
+Note: making files public is disabled in all accounts and can only be made possible by contacting us and asking one of our admins to change your account for you.
+It cannot happen accidentally.
+
+In addition to all of that your files will be in with more than 17 million other files.</p>
+		
+
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-4">
+
+        <h4>Does VoiceBase have its own speech engine?</h4>
+        <p>Yes, we have our own proprietary speech engine.</p>
+        <br>
+        <h4>What is the turnaround time for machine transcription?</h4>
+		<p>We use parallel processing and split the audio file into 1 minute chunks. Thus, we chop a 5 minute call into 5 one min pieces and send them out to multiple servers for processing. For example, if the job is a 5 min video, we can send back to you within 90 secs-3 mins. We also provide SLAs and 99% guarantee for 10 min, 2 hr, 24 turn around.</p> 
+		<br>
+        <h4>How is my data stored?</h4>
+        <p>VoiceBase uses Amazon Simple Storage Service (Amazon S3), which is storage for the Internet. You can use Amazon S3 to store and retrieve any amount of data at any time, from anywhere on the web. You can accomplish these tasks using the simple and intuitive web interface of the AWS Management Console.
+
+
+        With Amazon S3, you can request that your API responses - the JSON documents containing the transcript, keywords, topics, phrase spotting, and prediction results - be automatically exported to one of your Amazon S3 buckets. This is an add-on feature that happens in addition to any callbacks you also configure. S3 is a popular and easy to use storage system, and is supported by nearly every ETL, BI, and Big Data vendor as a native data source. In the first version, VoiceBase will provide developers with a pre-tested script that can be used along with callbacks to provide S3 export. In a later version, S3 export will be integrated with the Developer Portal UI and made even more automated.</p>
+        <br>
+       
+       
+
+       </div>
+      </div>
+    </body>
+ </html>         
+
+
+
+

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>APIPage2</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+	#bigFont {
+		font-size: 25px
+
+	}
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>	
+			    <a class="nav navbar-brand" ></a>
+			    <img class="img-responsive" src="logo.png" style="height:30px; margin-top: 11px">
+			    </div>
+			 <div class="collapse navbar-collapse" id="myNavbar">
+			 <ul class="nav navbar-nav" id="bigFont">
+			<!--  <li><img class="img-responsive" src="logo.png" style="height:30px; margin-top: 11px"></li> -->
+			 <li><a href="index.html">Help Center</a></li>
+			 </ul>
+			<ul class="nav navbar-nav navbar-right">
+			      <!-- <li class="active"><a href="index.html">Home</a></li> -->
+			      <li><a href="http://info.voicebase.com/contact-sales">Talk to Sales</a></li>
+			      <li><a href="https://www.voicebase.com/talk-to-support/">Talk to Support</a></li>
+             <li><a href="https://apis.voicebase.com/developer-portal/#/">Developer Portal</a></li>
+             <li><a href="http://status.voicebase.com/">System Status</a></li>
+             <li><a href="https://www.voicebase.com">Visit VoiceBase.com</a></li>
+            
+
+            </ul>
+            </div>
+        </div>
+    </nav> 
+     <div class="container">
+        <div class="row">
+			<div class="col-md-12">
+			<h3 style="text-align: center">VoiceBase API</h3>
+				<hr>
+			</div> 
+	    </div>
+	    <div class="row">
+			<div class="col-md-1">
+			</div>
+          <div class="col-md-4">
+         
+          <h4>How do I retrieve processed data?</h4>
+          <p>VoiceBase offers both polling and callback options to check for processing completion. Data can be returned in the callback or retrieved in a separate API request. Responses are in JSON format.</p>
+          <br>
+          <h4>How will API usage be billed?</h4>
+          <p>The first 10 hours of audio and video content processed for machine transcription with keywords and topics are free.
+
+          Additional usage will be billed per minute of content submitted. Each job can be queried to view its duration.
+
+          Please contact the <a href="https://www.voicebase.com/talk-to-support/">support team </a> if you need an extended trial.</p>
+
+          </div>
+          <div class="col-md-1">
+			</div>
+          <div class="col-md-4">
+          <h4>Where can I find a record of my uploaded files?</h4>
+          <p>The /media resource contains the media files you have uploaded to VoiceBase for analysis, as well as transcripts and analytics generated from processing these files.
+
+         You can find more details around the /media resource in the API Console for /media in the <a href="https://apis.voicebase.com/developer-portal/#/portal">Developer Portal.</a></p>
+          </div>
+          <div class="col-md-12">	
+				<hr>
+			</div> 
+         </div>
+      </div>
+    </body>
+</html>          
+
