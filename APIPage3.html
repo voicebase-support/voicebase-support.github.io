@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title>APIPage2</title>
+	<title>APIPage3</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -68,11 +68,14 @@
           </div>
           <div class="col-md-1">
 			</div>
-          <div class="col-md-4">
+          <div class="col-md-6">
           <h4>Where can I find a record of my uploaded files?</h4>
           <p>The /media resource contains the media files you have uploaded to VoiceBase for analysis, as well as transcripts and analytics generated from processing these files.
 
          You can find more details around the /media resource in the API Console for /media in the <a href="https://apis.voicebase.com/developer-portal/#/portal">Developer Portal.</a></p>
+         <br>
+         <h4>What if my job fails or gets stuck in processing?</h4>
+         <p>Although it is fairly rare that any errors occur in our platform, this scenario is still possible. If it happens that a job fails or gets stuck in processing for longer than a couple hours, we recommend doing up to two retries fairly quickly after receiving a Failure status--this would have a high chance of succeeding. In the case of an outage on our end, one or two retries after a few hours may be helpful. Please note we don't charge for failed jobs or jobs that get stuck in processing.
           </div>
           <div class="col-md-12">	
 				<hr>
