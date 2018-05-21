@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>amazon_connect_technical</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+	#bigFont {
+		font-size: 25px
+	}
+   #matchColor {
+    background: linear-gradient(to right, #339966 0%, #003399 100%);
+  }
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-inverse" id = "matchColor">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>	
+			    <a class="nav navbar-brand" ></a>
+          <img class="img-responsive" src="logo.png" style="height:30px; margin-top: 11px">
+			    </div>
+			 <div class="collapse navbar-collapse" id="myNavbar">
+			 <ul class="nav navbar-nav" id="bigFont">
+			<!--  <li><img class="img-responsive" src="logo.png" style="height:30px; margin-top: 11px"></li> -->
+			 <li><a style = "color:white" href="index.html">Help Center</a></li>
+			 </ul>
+			<ul class="nav navbar-nav navbar-right">
+			      <li><a style = "color:white" href="http://info.voicebase.com/contact-sales">Talk to Sales</a></li>
+			      <li><a style = "color:white" href="https://www.voicebase.com/talk-to-support/">Talk to Support</a></li>
+             <li><a style = "color:white" href="https://apis.voicebase.com/developer-portal/#/">Developer Portal</a></li>
+             <li><a style = "color:white" href="http://status.voicebase.com/">System Status</a></li>
+             <li><a style = "color:white" href="https://www.voicebase.com">Visit VoiceBase.com</a></li>
+            
+
+            </ul>
+            </div>
+        </div>
+    </nav> 
+     <div class="container">
+        <div class="row">
+			<div class="col-md-12">
+			<h3 style="text-align: center">Amazon Connect - Technical FAQs</h3>
+				<hr>
+			</div> 
+	    </div>
+	    <div class="row">
+			<div class="col-md-1">
+			</div>
+          <div class="col-md-4">
+         
+          <h4>How many shards should I enter?</h4>
+          <p>You must configure the number of shards for each Kinesis Stream to support your anticipated call volume. The "correct" number of shards depends upon your call volume measured in calls per second and, to a lesser extent, on the length of your calls, since longer calls lead to larger JSON output documents. For typical Contact Center calls, a Kinesis stream with one shard is sufficient to handle approximately 25 calls per second. </p>
+           <br>
+           <h4>What is the security configuration on API Gateway?</h4>
+           <p>VoiceBase does not recommend making any changes to the security settings of the API Gateway.  The standard configuration should work fine.</p>
+            <br>
+            <h4>What are two output options available? </h4>
+          <p>VoiceBase has two output options.  One output option is to place the JSON results on a new Kinesis stream.  The second option is to place the JSON results in a Kinesis Firehose stream where the JSON results will be stored in an S3 bucket.</p>
+          <br>
+           <h4>What functions does the first Lambda perform?</h4>
+           <p>The first Lambda gets the notification about a call recording, VoiceBase configuration parameters and call metadata including the audio location.  It creates a VB request by creating a pre-assigned URL to the recording and sends the trust to the VoiceBase API.  Then VoiceBase uses this URL to pull the call recording. </p>
+           <br>
+           <h4>Do I need to manually create the Lambdas?</h4>
+           <p>No. The Lambdas will be created through the CloudFormation process. </p>
+           </div>
+        
+         <div class="col-md-1">
+			</div>
+          <div class="col-md-4">
+          <h4>Is there scripting involved?</h4>
+          <p>The base integration installed via CloudFormation does not require any scripting.  If you choose to create Custom Vocabulary groups, then additional work will be necessary.  These will need to be created via the API.  Full API documentation may be accessed <a href="http://voicebase.readthedocs.io/en/v3/index.html">here.</a></p>
+          <br>
+          <h4>Are credentials required to access the Amazon Connect S3 bucket?</h4>
+          <p>No additional credential configuration is required for VoiceBase to access the S3 bucket.</p>
+          <br>
+          <h4>What does a typical payload look like?</h4>
+          <p> A sample payload may be viewed <a href="https://drive.google.com/file/d/15qRWwKOETvfOy36gqYWuwRZYCjrcsTD9/view">here.</a></p>
+           <br>
+         <h4>Does the integration keep my Amazon Connect metadata?</h4>
+         <p>Yes.  The VoiceBase integration will retain the Amazon Connect metadata that is associated with the call. </p> 
+         <br>
+         <h4>Does the VoiceBase integration alter the CTR data on the Amazon Connect Kinesis stream?</h4>
+         <p>No. The first Lambda only reads the CTR data from the Kinesis stream.  It does not make any changes.</p> 
+         <br>
+         <h4>What is the Amazon recording like? Are they stereo? High definition voice?</h4>
+         <p>The Amazon Connect calls are automatically recorded in stereo. The high definition voice enables VoiceBase to provide a highly accurate speech-to-text transcription with speaker separation.  </p> 
+          </div>
+        </div>  
+     </div>
+     <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/1701619.js"></script>
+    </body>
+ </html>          
+
+
