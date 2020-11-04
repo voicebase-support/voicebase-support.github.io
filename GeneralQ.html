@@ -55,18 +55,14 @@
 			</div>
           <div class="col-md-4">
            <h4>Can my files be deleted after transcription?</h4>
-        <p>Yes, you have the option to delete files yourself. If and when you delete files all copies and any derivative material, transcripts, etc. are immediately and irretrievably deleted. </p>
+        <p>Files uploaded to VoiceBase have a TimeToLive (TTL) of 121 days, at which point they are deleted. If you prefer a shorter TTL, please let <a href="https://www.voicebase.com/talk-to-support/">support</a> know and we will adjust that in your account.</p>
         <br>
-          <h4>How can I be sure my files will be kept private?</h4>
-          <p>Our privacy policy may be found <a href="https://www.voicebase.com/privacy-policy/">here. </a> We have summarized the important points below, but please note what follows does not in any way replace the privacy policy as set by our legal advisors:<br>
-          Most of our customers are processing confidential material.
+        <h4>How is my data stored?</h4>
+        <p>VoiceBase uses Amazon Simple Storage Service (Amazon S3), which is storage for the Internet. You can use Amazon S3 to store and retrieve any amount of data at any time, from anywhere on the web. You can accomplish these tasks using the simple and intuitive web interface of the AWS Management Console.
 
-Files uploaded to VoiceBase are private by default.
-They are stored inside a VPC (virtual private cloud, like a VPN)
-Our admin staff has limited access to check files when we detect a problem.
-All staff sign NDA's and are required to use two factor login to admin pages and separate login to the VPC.
-We need two passwords and two authenticator codes to access content.
-</p>
+
+        With Amazon S3, you can request that your API responses - the JSON documents containing the transcript, keywords, topics, phrase spotting, and prediction results - be automatically exported to one of your Amazon S3 buckets. This is an add-on feature that happens in addition to any callbacks you also configure. S3 is a popular and easy to use storage system, and is supported by nearly every ETL, BI, and Big Data vendor as a native data source. In the first version, VoiceBase will provide developers with a pre-tested script that can be used along with callbacks to provide S3 export. In a later version, S3 export will be integrated with the Developer Portal UI and made even more automated.</p>
+        <br>
 		
 
         </div>
@@ -75,17 +71,12 @@ We need two passwords and two authenticator codes to access content.
         <div class="col-md-4">
 
         <h4>Does VoiceBase have its own speech engine?</h4>
-        <p>Yes, we have our own proprietary speech engine.</p>
+        <p>VoiceBase offers three proprietary speech engine options, each tuned to address different audio needs. Talk to your <a href="https://info.voicebase.com/contact-sales">sales</a> representative about which one is most appropriate for your company.</p>
         <br>
         <h4>What is the turnaround time for machine transcription?</h4>
-		<p>We use parallel processing and split the audio file into 1 minute chunks. Thus, we chop a 5 minute call into 5 one min pieces and send them out to multiple servers for processing. For example, if the job is a 5 min video, we can send back to you within 90 secs-3 mins. We also provide SLAs and 99% guarantee for 10 min, 2 hr, 24 turn around.</p> 
+		<p>We use parallel processing and split each audio file into 1 minute chunks, then send them out to multiple servers for processing. This means that if the job is a 5 min video, we can send it back to you within 90 secs-3 mins. We also provide SLAs and 99% guarantee for 10 min, 2 hr, or 24 hr turnaround times.</p> 
 		<br>
-        <h4>How is my data stored?</h4>
-        <p>VoiceBase uses Amazon Simple Storage Service (Amazon S3), which is storage for the Internet. You can use Amazon S3 to store and retrieve any amount of data at any time, from anywhere on the web. You can accomplish these tasks using the simple and intuitive web interface of the AWS Management Console.
-
-
-        With Amazon S3, you can request that your API responses - the JSON documents containing the transcript, keywords, topics, phrase spotting, and prediction results - be automatically exported to one of your Amazon S3 buckets. This is an add-on feature that happens in addition to any callbacks you also configure. S3 is a popular and easy to use storage system, and is supported by nearly every ETL, BI, and Big Data vendor as a native data source. In the first version, VoiceBase will provide developers with a pre-tested script that can be used along with callbacks to provide S3 export. In a later version, S3 export will be integrated with the Developer Portal UI and made even more automated.</p>
-        <br>
+     
        
        
 
