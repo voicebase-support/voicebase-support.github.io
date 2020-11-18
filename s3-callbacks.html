@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>S3 Callbacks &mdash; VoiceBase API 3.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Formatting and Punctuation" href="formatting.html" />
+    <link rel="prev" title="Custom Vocabulary" href="custom-vocabulary.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> VoiceBase API
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/api_overview.html">API Overview</a></li>
+</ul>
+<p class="caption"><span class="caption-text">How-To Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="hello-world.html">Hello, World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transcripts.html">Transcripts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keywords-and-topics.html">Keywords and Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="keyword-spotting.html">Keyword and Phrase Spotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="predictions.html">Classifiers (Predictions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languages.html">Languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stereo.html">Stereo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="closed-captioning.html">Closed Captioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="callbacks.html">Callbacks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="search.html">Search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swearwords.html">Swear Word Filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="priority.html">Priority</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pci-ssn-pii-detection.html">PCI, SSN, PII Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pci-ssn-pii-redaction.html">PCI, SSN, PII Redaction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client-supplied-encryption.html">Client Supplied Encryption</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom-vocabulary.html">Custom Vocabulary</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">S3 Callbacks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-generate-a-pre-signed-url-with-python-using-boto3">How to generate a pre-signed URL with Python using Boto3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="formatting.html">Formatting and Punctuation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voicemail.html">Visual Voicemail</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html">Working with Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metadata.html#associating-a-request-with-metadata">Associating a request with Metadata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reprocessing.html">Reprocessing your files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aligner.html">Aligner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swagger-codegen.html">Generating a client with Swagger Code Generation tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="https-request-security.html">HTTPS Request Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="categories.html">Categories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conversation-metrics.html">Conversation Metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voice-features.html">Voice Features</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/media.html">Working with Media (/media)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/definitions.html">Customizing VoiceBase (/definitions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api-reference/profile.html">Managing Access (/profile)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data Formats</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../data-formats/configuration.html">Sample configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data-formats/media.html">media</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Error Codes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../errors/errors.html">Voicebase API Error Codes and Messages</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Portal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://apis.voicebase.com/developer-portal/">Developer Portal</a></li>
+</ul>
+<p class="caption"><span class="caption-text">License</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">Apache License, Version 2.0</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VoiceBase API</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>S3 Callbacks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/how-to-guides/s3-callbacks.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="s3-callbacks">
+<h1>S3 Callbacks<a class="headerlink" href="#s3-callbacks" title="Permalink to this headline">¶</a></h1>
+<p>VoiceBase is able to return the results of your requests into your Amazon S3 bucket
+without you having to provide AWS credentials to VoiceBase. This is achieved
+by providing a pre-signed URL in the callback configuration when you submit the
+media for processing to us.</p>
+<div class="section" id="how-to-generate-a-pre-signed-url-with-python-using-boto3">
+<h2>How to generate a pre-signed URL with Python using Boto3<a class="headerlink" href="#how-to-generate-a-pre-signed-url-with-python-using-boto3" title="Permalink to this headline">¶</a></h2>
+<p>The following code shows how to generate a pre-signed URL using boto3 as the AWS client library.
+Note that the “method” must be set to “PUT”.</p>
+<p>You you must provide a Content-Type header with a value that matches the content type of the results
+to be received. Refer to [callback] documentation. (callbacks.html)</p>
+<p>You must provide ample time between the time you create the
+pre-signed URL and the expected time your processing request to VoiceBase will complete.  The
+sample code expires the URL after 24 hours (86400 seconds).</p>
+<p><em>presigned.py</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># Get the service client.</span>
+<span class="n">session</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">aws_access_key_id</span><span class="o">=</span><span class="s2">&quot;XXX&quot;</span><span class="p">,</span> <span class="n">aws_secret_access_key</span><span class="o">=</span><span class="s2">&quot;XXX&quot;</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+
+<span class="n">bucket</span> <span class="o">=</span> <span class="s1">&#39;your-bucket-name&#39;</span>
+<span class="n">objectName</span> <span class="o">=</span> <span class="s1">&#39;desired/object/name/analytics.json&#39;</span>
+<span class="n">mimeType</span> <span class="o">=</span> <span class="s1">&#39;application/json&#39;</span>
+
+<span class="c1"># Generate the URL for a PUT of the &#39;desired-object-name&#39; into &#39;your-bucket-name&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">generate_presigned_url</span><span class="p">(</span>
+    <span class="n">ClientMethod</span><span class="o">=</span><span class="s1">&#39;put_object&#39;</span><span class="p">,</span>
+    <span class="n">Params</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;Bucket&#39;</span><span class="p">:</span> <span class="n">bucket</span><span class="p">,</span>
+        <span class="s1">&#39;Key&#39;</span><span class="p">:</span> <span class="n">objectName</span><span class="p">,</span>
+        <span class="s1">&#39;ContentType&#39;</span> <span class="p">:</span> <span class="n">mimeType</span>
+    <span class="p">},</span>
+    <span class="n">ExpiresIn</span><span class="o">=</span><span class="mi">86400</span><span class="p">,</span>
+    <span class="n">HttpMethod</span><span class="o">=</span><span class="s1">&#39;PUT&#39;</span>
+   <span class="p">)</span>
+<span class="nb">print</span> <span class="n">url</span>
+</pre></div>
+</div>
+<p>Generate the presigned URL</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python presigned.py
+</pre></div>
+</div>
+<p>Use the pre-signed URL in the configuration when submitting media to the /v3 API. For example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;publish&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;callbacks&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nt">&quot;url&quot;</span> <span class="p">:</span> <span class="s2">&quot;https://your-bucket-name.s3.amazonaws.com/desired/object/name/analytics.json?AWSAccessKeyId=AKIAJV3H7XSCGJXMUGGA&amp;content-type=application%2Fjson&amp;Expires=1499476130&amp;Signature=UwcWOfLWLpvtj1LibHd0Na5Fw%2FM%3D&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span> <span class="p">:</span> <span class="s2">&quot;analytics&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;method&quot;</span> <span class="p">:</span> <span class="s2">&quot;PUT&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;include&quot;</span> <span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;transcript&quot;</span><span class="p">,</span> <span class="s2">&quot;knowledge&quot;</span><span class="p">,</span> <span class="s2">&quot;metadata&quot;</span><span class="p">,</span> <span class="s2">&quot;prediction&quot;</span><span class="p">,</span> <span class="s2">&quot;streams&quot;</span> <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="formatting.html" class="btn btn-neutral float-right" title="Formatting and Punctuation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="custom-vocabulary.html" class="btn btn-neutral float-left" title="Custom Vocabulary" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016, VoiceBase
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

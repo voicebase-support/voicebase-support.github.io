@@ -58,30 +58,10 @@
 			</div>
           <div class="col-md-4">
          
-          <h4>What languages are supported with the API?</h4>
-          <p><strong>English:</strong>
-            U.S. English(en-US) - default,
-             U.K. English(en-UK),
-           Australian English(en-AU)
-           <strong>French:</strong>
-           (fr-FR)
-           <strong>German:</strong>
-           (de-DE)
-           <strong>Italian:</strong>
-           (it-IT)
-           <strong>Dutch:</strong>
-           (nl-NL)
-          <strong>Spanish:</strong>
-          Spain(es-ES),
-         Latin America(es-LA)
-         <strong>Portuguese:</strong>
-         Brazil(pt-BR). More on configuring language support is found <a href="http://voicebase.readthedocs.io/en/v3/how-to-guides/languages.html">here.</a></p>
+          <h4>Why is PCI not detected on my test recording?</h4>
+          <p>VoiceBase's PCI and SSN detectors are based on machine learned models of real calls where both a caller and an agent are audible. This gives higher reliability and adaptability to real world situations than deterministic models, but also means that for accurate results the audio being processed for PCI, SSN, or PII detection must be real, not a test audio. An actual phone order may reflect some amount of conversation, followed by a product and quantity, the agent giving a total, asking for the card type and number, expiration date and possibly CVV code, and this is the type of data the PCI and related detectors have been trained on. If a customer creates a test audio that may only include numbers being read without the context that would typically trigger the model, the PCI will probably not be successfully detected.</p>
          <br>
-          <h4>What file formats can be uploaded?</h4>
-          <p>Our total list of accepted formats includes:
-           *.mp3, *.mp4, *.flv, *.wmv, *.avi, *.mpeg, *.aac, *.aiff, *.au, *.ogg, *.3gp, *.flac, *.ra, *.m4a, *.wma, *.m4v, *.caf, *.cf, *.mov, *.mpg, *.webm, *.wav, *.asf, *.amr</p>
-           <br>
-            
+
          
           <h4>What is your output format for multi-channel?</h4>
 
@@ -123,14 +103,16 @@
           <div class="col-md-5">
           <h4>How do I get an API key?</h4>
           <p>Request an API key by <a href="http://info.voicebase.com/request-api-key">signing up</a> for access.</p>
-          <br>
-          <h4>What can I do with the API?</h4>
-          <p>All VoiceBase features are available through the API. See our <br><a href="https://www.voicebase.com/products-features/">features and pricing page </a> for a full list of features.</p>
+ 
           <br>
           <h4>How does the API accept media?</h4>
           <p>The API can accept urls to the media or the actual media as <br>form data attachments.</p>
           <br>
-          
+          <h4>What file formats can be uploaded?</h4>
+          <p>Our total list of accepted formats includes:
+           *.mp3, *.mp4, *.flv, *.wmv, *.avi, *.mpeg, *.aac, *.aiff, *.au, *.ogg, *.3gp, *.flac, *.ra, *.m4a, *.wma, *.m4v, *.caf, *.cf, *.mov, *.mpg, *.webm, *.wav, *.asf, *.amr</p>
+           <br>
+            
           <h4>What is included in the Web SDK?</h4>
           <p>The VoiceBase <a href="https://www.voicebase.com/player-SDK/">Web SDK </a>contains our player plugin which wraps around many popular video players to display click-to-navigate transcript, keywords, and topics. This is written primarily in JavaScript and CSS. All Web SDK contents may be used free and at your disposal.</p>
           <br>

@@ -64,25 +64,18 @@
            <h4>What file formats should be sent for video transcription?</h4>
            <p>We recommend that customers strip out the audio from video files and only send the audio to VoiceBase. We then send JSON data and time-stamped keywords back and the synchronization is done on the customer’s end. (When a customer does upload video, we do transcoding.)
             <br>
-           2 and 8 users - 
 
-            The player plugin is not an API call. It is about 20 or 30 files that we  email to a customer in a zip archive. They can put those files on their own server or application. That will allow the player plugin to work.
-
-         The player plugin works by reading VoiceBase JSON responses. You have 2 options to get the JSON response to the player plugin:
-        Give the player your API Bearer token, enabling it to make API calls to VoiceBase, or
-         store the VoiceBase JSON responses to the customer server and have the player read those.</p>
 
            </div>
         
          <div class="col-md-1">
 			</div>
           <div class="col-md-4">
-          <h4>Do you support files as a URL and also file upload?</h4>
-          <p>Yes. You can pass VoiceBase an accessible url where the recording lives, or attach it to the API request.</p>
+
          
           <br>
           <h4>Does the API allow custom data to be passed in such as my internal IDs?</h4>
-          <p> Yes, use the metadata attachment - any customer supplied metadata will be passed through.</p>
+          <p> Yes, use the <a href=https://voicebase.readthedocs.io/en/v3/how-to-guides/metadata.html>metadata</a> attachment - any customer supplied metadata may be uploaded along with a media file.</p>
            <br>
          <h4>Can I embed your player plug-in?</h4>
          <p>We can absolutely take our player plugin UI and embed it in your platform so that it appears native. Contact a <a href="http://info.voicebase.com/contact-sales">Sales Engineer </a>for more information.</p> 
