@@ -7,19 +7,23 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style>
 	#bigFont {
-		font-size: 25px;
+    font-family: "Montserrat:wght600&display=swap", sans-serif;
+		font-size: 26px;
+    color:white;
 
 	}
   #matchColor {
     background: linear-gradient(to right, #081433 0%, #233E60 100%);
   }
-  #fontColor {
-    color:white;
+  a {
+    color:#233E60;
   }
+  h3 { font-family: Montserrat:wght600&display=swap; color:#233E60; }
   
 	</style>
 </head>
@@ -40,9 +44,9 @@
 			 <div class="collapse navbar-collapse" id="myNavbar">
 			 <ul class="nav navbar-nav" id="bigFont">
 			 <!-- <li><img class="img-responsive" src="logo.png" style="height:30px; margin-top: 11px"></li> comment-->
-			 <li><a style = "color:white" href="#">Help Center</a></li>
+			 <li><a id = "bigFont" href="#">Help Center</a></li>
 			 </ul>
-			<ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-nav navbar-right" >
 			      
 			      <li><a style = "color:white" href="https://info.voicebase.com/contact-sales">Talk to Sales</a></li>
 			      <li><a style = "color:white" href="https://www.voicebase.com/talk-to-support/">Talk to Support</a></li>
@@ -63,7 +67,7 @@
 			<div class="col-md-1">
 			</div>
           <div class="col-md-4">
-          <h3>General Questions</h3>
+          <h3 >General Questions</h3>
            
           <p><a href="GeneralQ.html">What security certifications does VoiceBase hold?</a></p>
            <p><a href="GeneralQ.html">How is my data stored? (Amazon S3)</a></p>
@@ -83,6 +87,9 @@
             <p><a href="amazon_connect.html">How is your solution priced?</a></p>
             <p><a href="amazon_connect_technical.html">Technical FAQs about our Amazon Connect integration</a></p> 
             <br>
+
+           <!--  <img class="img-responsive" src="Asset21x.png"> -->
+        
              <h3>Account Questions</h3>
            <p><a href="AccountQ.html">Can our company have multiple users on a single account?</a></p>
            <p><a href="AccountQ.html">Can I use the same email for multiple API keys?</a></p>
@@ -90,6 +97,7 @@
           
            <p><a href="AccountQ.html">When does my API key expire?</a></p>
             <br>
+
            <h3>Billing Questions</h3> 
            
            <p><a href="APIPage3.html">How will API usage be billed?</a></p>
