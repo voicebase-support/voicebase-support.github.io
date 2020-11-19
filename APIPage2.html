@@ -39,7 +39,7 @@
 			      <li><a style = "color:white"href="https://www.voicebase.com/talk-to-support/">Talk to Support</a></li>
              <li><a style = "color:white"href="https://apis.voicebase.com/developer-portal/#/">Developer Portal</a></li>
              <li><a style = "color:white"href="http://status.voicebase.com/">System Status</a></li>
-             <li><a style = "color:white"href="https://www.voicebase.com">Visit VoiceBase.com</a></li>
+             <li><a style = "color:white"href="https://www.voicebase.com">voicebase.com</a></li>
             
 
             </ul>
@@ -63,10 +63,10 @@
          <br>
 
          
-          <h4>What is your output format for multi-channel?</h4>
+          <h4>What is your output format for dual-channel audio?</h4>
 
-           <p>The JSON transcript would be like the example below, where 'w' is the word or speaker, 'e' and 's' are timestamps, 'c' is confidence, 'p' is position in the transcript, and 'm' is metadata information ("turn" reserved for speaker switches). This is a simple transcript where the caller says hi, then the agent says hi. We also have txt, srt, and other formats, but JSON is used most often; you can parse it and store or redisplay to make it 'plain'.
-
+           <p>The JSON transcript would be like the example below, where 'w' is the word or speaker, 'e' and 's' are timestamps, 'c' is confidence, 'p' is position in the transcript, and 'm' is metadata information ("turn" reserved for speaker switches). This is a simple transcript where the caller says hi, then the agent says hi. </br>
+           <code style="background-color:#d9ffbf;color:black"> 
          {
           "w": "caller",
          "e": 5560,
@@ -96,7 +96,7 @@
             "s": 5560,
             "c": 0.012,
             "p": 4
-          },</p>
+          }</code></br>See more examples <a href="https://voicebase.readthedocs.io/en/v3/how-to-guides/stereo.html">here.</a></p>
           </div>
           <div class="col-md-1">
 			</div>
