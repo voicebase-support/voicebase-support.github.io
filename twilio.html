@@ -1,35 +1,36 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title>API FAQ-2</title>
+	<title>VoiceBase-Twilio Add-on and Integration</title>
+	 <meta content="VoiceBase addon for Twilio FAQ and VoiceBase Twilio integration FAQ"name="description">
+    <meta content="VoiceBase Transcription w Custom Vocab,VoiceBase PCI Detection and Redaction addon,VoiceBase Marketplace Add-on"name="keywords">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<style>
 		body {
-background-image: url("Asset21x.png");
+	background-image: url("Asset21x.png");
 }
 @media only screen and (min-width: 415px) {
   body {
     background-image: url("Asset21x.png");
   }
 } 
-  #bigFont {
+	#bigFont {
     font-family: "Montserrat:wght600&display=swap", sans-serif;
-    font-size: 26px;
+		font-size: 26px;
     color:#233E60;
 
-  }
-     #matchColorNew {
+	}
+	#matchColorNew {
     background: white;
   }
 	#matchColor {
     background: linear-gradient(to right, #081433 0%, #233E60 100%);
   }
-    h3 { font-family: Montserrat:wght600&display=swap; color:#233E60; }
+  h3 { font-family: Montserrat:wght600&display=swap; color:#233E60; }
   h4 { font-family: Montserrat:wght600&display=swap; color:#233E60; }
   p {color:#233E60;}
 	</style>
@@ -51,23 +52,20 @@ background-image: url("Asset21x.png");
 			<!--  <li><img class="img-responsive" src="logo.png" style="height:30px; margin-top: 11px"></li> -->
 			 <li><a id = "bigFont" href="index.html">Help Center</a></li>
 			 </ul>
-			<ul class="nav navbar-nav navbar-right">
-			      <!-- <li class="active"><a href="index.html">Home</a></li> -->
+			<ul class="nav navbar-nav navbar-right">      
 			      <li><a style = "color:#233E60; font-size: 16px;"href="http://info.voicebase.com/contact-sales">Talk to Sales</a></li>
 			      <li><a style = "color:#233E60; font-size: 16px;"href="https://www.voicebase.com/talk-to-support/">Talk to Support</a></li>
              <li><a style = "color:#233E60; font-size: 16px;"href="https://apis.voicebase.com/developer-portal/#/">Developer Portal</a></li>
-             <li><a style = "color:#233E60; font-size: 16px;"href="http://status.voicebase.com/">System Status</a></li>
+             <li><a style = "color:#233E60; font-size: 16px;"href="http://status.voicebase.com/">System Status</a></li> 
              <li><a style = "color:#233E60; font-size: 16px;"href="https://www.voicebase.com">voicebase.com</a></li>
-            
-
             </ul>
             </div>
         </div>
     </nav> 
-     <div class="container">
+      <div class="container">
         <div class="row">
 			<div class="col-md-12">
-			<h3 style="text-align: center">VoiceBase API</h3>
+			<h3 style="text-align: center">Twilio Add-on and Integration</h3>
 				<hr>
 			</div> 
 	    </div>
@@ -75,23 +73,28 @@ background-image: url("Asset21x.png");
 			<div class="col-md-1">
 			</div>
           <div class="col-md-4">
-         
-          <h4>How do I retrieve processed data?</h4>
-          <p>VoiceBase offers both polling and callback options to check for processing completion. Data can be returned in the callback or retrieved in a separate API request. Responses are in JSON format.</p>
+          	<h4>What features are available with the VoiceBase High Accuracy Transcription Add-on?</h4>
+        <p>Features available are <a href="https://voicebase.readthedocs.io/en/v3/how-to-guides/stereo.html">dual-channel (stereo)</a>, <a href="https://voicebase.readthedocs.io/en/v3/how-to-guides/pci-ssn-pii-detection.html">PCI detection and redaction</a>, <a href="https://voicebase.readthedocs.io/en/v3/how-to-guides/custom-vocabulary.html">Custom Vocabulary</a>, <a href="https://voicebase.readthedocs.io/en/v3/how-to-guides/keywords-and-topics.html">Keywords and Topics</a>, and <a href="https://voicebase.readthedocs.io/en/v3/how-to-guides/keyword-spotting.html">Keyword Spotting</a>.<br>The steps for enabling dual channel with the Add-on may be found <a href="https://www.twilio.com/blog/2016/12/more-accurate-call-transcriptions-available-now.html">here</a>. <br> The other features may be configured in the Twilio console when logged in to your Twilio account. </p>
+		
+
         </div>
-          <div class="col-md-1">
-			</div>
-          <div class="col-md-4">
-          <h4>Where can I find a record of my uploaded files?</h4>
-          <p>Making a GET request on /media will retrieve a list of the media files you have uploaded to VoiceBase.
-         You can find sample code for this and other API calls in the <a href="https://v3-console.voicebase.com/">developer console.</a></p>
-          </div>
-          <div class="col-md-12">	
-				<hr>
-			</div> 
-         </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-4">
+
+        <h4>What is the difference between the Add-on and a direct VoiceBase-Twilio integration? </h4>
+        <p>A direct integration means taking your Twilio recordings and transcribing them directly through the VoiceBase API, opening up full use of all <a href="https://voicebase.readthedocs.io/en/v3/overview/api_overview.html">features</a>. <br> Click <a href="https://www.voicebase.com/twilio-integration/">here</a> for an integration guide.</p>
+    
+     
+       
+       
+
+       </div>
       </div>
       <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/1701619.js"></script>
     </body>
-</html>          
+ </html>         
+
+
+
 
