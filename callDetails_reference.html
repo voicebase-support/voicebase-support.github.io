@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>callDetails Reference</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+				<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-18590358-1"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', '253983637');
+</script>
+	<style>
+
+	#bigFont {
+		font-family: "Montserrat:wght600&display=swap", sans-serif;
+		font-size: 26px;
+		color:#233E60;
+
+	}
+	#matchColorNew {
+		background: white;
+	}
+	#matchColor {
+		background: linear-gradient(to right, #081433 0%, #233E60 100%);
+	}
+ .center {
+	/*text-align: center;*/
+	list-style-position: inside;
+	color:#000000;
+}
+ol.center li
+{
+	color: #000000;
+ text-align: left;
+
+ font-size: 16px;
+}
+.inlineList {
+	 list-style: none; display: inline; }
+}
+.inlineList.after { content: " \00b7"; }
+.inlineList.last-child.after { content: none; }
+
+	h3 { font-family: Montserrat:wght600&display=swap; color:#233E60; }
+	h4 { font-family: Montserrat:wght600&display=swap; color:#233E60; }
+	p {color:#000000;font-size: 16px;}
+	ul {color:#000000;font-size: 16px;}
+	a {color:#0000CD;}
+	
+
+	</style>
+</head>
+<body>
+			 <div class="container">
+				<div class="row">
+			<div class="col-md-12 text-center">
+			<h3 >callDetails Reference</h3>
+				<hr>
+			</div> 
+			</div>
+			<div class = "row">
+			<div class = "col-md-12" style="text-align: justify">
+			<pre id="json-result">
+			</pre>
+
+		<script>		
+	var CallDetail = {			
+"callDetails": {
+    "agent": {
+        "externalId": "agentkqrw_7575",
+        "fullName": "Roberta Reinger",
+        "email": "Roberta.Reinger@voicebase.com",
+        "phone": "1-706-405-9676 x1425"
+    },
+    "agentSupervisor": {
+        "externalId": "supervisorkqrw_77",
+        "fullName": "Cristopher Dietrich",
+        "email": "Cristopher.Dietrich@voicebase.com",
+        "phone": "244.899.9887"
+    },
+    "agentManager": {
+        "externalId": "managerkqrw_11",
+        "fullName": "Gilbert Krajcik",
+        "email": "Gilbert.Krajcik@voicebase.com",
+        "phone": "719-534-9473 x2939"
+    },
+    "caller": {
+        "externalId": "caller_22619",
+        "fullName": "Julie Breitenberg",
+        "email": "Julie.Breitenberg@voicebase.com",
+        "phone": "220-202-0427 x31744"
+    },
+    "callStartTime": "2020-05-04T19:19:25.086Z",
+    "callEndTime": "2020-05-04T19:19:30.086Z"
+}};
+document.getElementById("json-result").innerHTML = JSON.stringify(CallDetail, undefined, 2);
+
+</script>
+
+
+
+<hr>
+</div></div></div>
+</body>
+</html>
