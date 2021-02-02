@@ -142,8 +142,11 @@ ol.center li
 
 				 <h4>Search Workbench</h4>
 
-			
+			        <p>You may create a query using any field in the Schema tab, which also appear as column headers. For example, to search for previously indexed metadata, use this syntax:</p>
 					<code>SELECT * FROM media WHERE metadata:datasetID = 'Company_X'</code><br><br>
+					<p>A similar syntax is used for most of the fields. One exception is 'metrics', where the syntax requires quotation marks:</p>
+					<code>SELECT * FROM media WHERE metrics:"agent-average-streak" > 0</code><br><br>
+
 
 			<hr>
 			</div>			
