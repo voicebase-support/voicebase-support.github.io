@@ -148,15 +148,15 @@ ol.center li
 					 <h4>Step 3: Metadata Upload to S3 Bucket</h4>
 					 <hr>
 						<p >The VoiceBase ETL schema includes two main fields for metadata:
-						 "extended" and "callDetails". Other fields available are "externalId”,”title”, and "description”.<br> The “callDetails“ fields are indexed by default, along with  “externalId”,”title”, and “description”.<br><br>The <a href="https://support.voicebase.com/callDetails_reference.html">callDetails</a> fields include many common fields typically used by customers. The "extended" field is for custom fields that may be unique for a particular use case. For example, it may include information such as location, agent ID, CSAT score, campaign name, call drivers, call dispositions, or call types. Any custom "extended" fields must be <a href="https://support.voicebase.com/indexing_how-to.html">indexed </a>by the user before uploading so they are searchable.<br>
+						 "extended" and "callDetails". Other fields available are "externalId”,"title", and "description".<br> The "callDetails" fields are indexed by default, along with "externalId","title", and "description".<br><br>The <a href="https://support.voicebase.com/callDetails_reference.html">callDetails</a> fields include many common fields typically used by customers. The "extended" field is for custom fields that may be unique for a particular use case. For example, it may include information such as location, agent ID, CSAT score, campaign name, call drivers, call dispositions, or call types. Any custom "extended" fields must be <a href="https://support.voicebase.com/indexing_how-to.html">indexed </a>by the user before uploading so they are searchable.<br>
 						 
 						 
 						<br>Example syntax for AWS upload: <code style="color:black;">Example syntax for AWS upload:
-									{'Metadata':{‘title’:’REO.wav’,‘callDetails’:’agent’.’externalId’:agentkqrw_7575,
-  															'extended.location':’12345’}}</code><br><br>
+									{'Metadata':{'title':'REO.wav','callDetails':'agent'.'externalId’:'agentkqrw_7575',
+  															'extended.location':'12345'}}</code><br><br>
 						 
 					
-						<p>Example in json format:</p>
+						<p>Example in json format:
 						<code style="color:black">
 						{
   						"title":"RE0.wav",
@@ -164,17 +164,19 @@ ol.center li
    						 "agent": {
      					 "externalId": "agentkqrw_7575",
   						"extended":{
-    					 "location":"12345”
+    					 "location":"12345"
      						}
 						}
-     						</code><br><br>
+     						</code><br><br></p>
 						
 						<br><p>As seen in the above examples, AWS requires nested fields in metadata to be delimited by dots. When uploaded, AWS downcases all fields. VoiceBase will convert the fields to its required case-sensitive syntax as part of the Ingress process from s3.</p>
 						<hr>
 						<h4>Glossary of Terms and Expanded Notes</h4>
 						<hr>
 						<p><strong>Cloudformation Template Permissions</strong><br>
-						Permissions are limited to the VoiceBase platform being able to get objects in the bucket (GetObject) and list objects in the bucket (ListBucket).</p>
+						Permissions allow the VoiceBase platform being able to get objects in the bucket (GetObject) and list objects in the bucket (ListBucket).<br>
+					    Permissions also allow for actions in the SQS (Simple Queue Service), specifically to DeleteMessage,DeleteMessageBatch,GetQueueAttributes,GetQueueUrl,
+					    ReceiveMessage,SendMessage, and SendMessageBatch.</p>
  
 						<p><strong>IAMRoleArn</strong><br>
 						Amazon Resource Names (ARNs) uniquely identify AWS resources. AWS requires an ARN when you need to specify a resource unambiguously across all of AWS, such as in Identity Access Management (IAM) policies and the roles attached to those policies. The IAMRole created through the Cloud Formation Template is used by VoiceBase to access the S3 Bucket & SQS Queues generated.<br></p>
