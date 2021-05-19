@@ -104,25 +104,39 @@ ol.center li
 			</div>
 			<div class = "row">
 				<div class = "col-md-12">
+					<ul class = "center">
 					<h4>S3 Ingress</h4>
 					<hr>
-					<ul class = "center">
+					
 					<li>Use VoiceBase's S3 Ingress option to upload files to our platform directly from your AWS S3 bucket. Step by step instructions may be found <a href="https://support.voicebase.com/s3Ingress.html">here.</a></li>
 						</ul>
 						<hr>
-			
-					 <h4>Upload through the VoiceBase API</h4>
-						<hr>
 						<ul class = "center">
+ 						<h4>Upload through the VoiceBase API</h4>
 						<li>In your VoiceBase <a href="https://app.voicebase.com/login">account</a> go to Settings > Bearer Tokens > Add Bearer Token to create a Bearer Token for your account.</li>
 						<li>For API call examples in cURL, see the VoiceBase <a href="https://voicebase.readthedocs.io/en/v3/overview/api_overview.html">documentation</a>.
 						<li>"How-to" configuration <a href="https://voicebase.readthedocs.io/en/v3/data-formats/configuration.html">examples</a> for all features available on the VoiceBase platform are also included with the documentation.</li> 
 						<li>Sample bulk upload Python scripts for upload from your local machine, URLS, or s3 bucket may be accessed <a href="https://github.com/voicebase-support/voicebase-support.github.io/tree/master/upload_python_scripts_and_client">here.</a></li>
 						<li>Sample bulk download Python scripts may be accessed <a href="https://github.com/voicebase-support/voicebase-support.github.io/tree/master/download_python_scripts_and_client">here.</a></li>
 					</ul>
-
 						<hr>
 						<ul class = "center">
+						<h4>Upload to VoiceBase using SFTP (POC only)</h4>
+						<hr>
+						
+						<li>Our team will create an SFTP login for POC customers who prefer to send audio by SFTP.</li>
+						<li>To authenticate with VoiceBase's upload SFTP, customers need to provide their SSH-rsa key.</li>
+						<li>When providing the SSH key, please ensure it is the key for the terminal/server the calls will be uploaded from. It will most likely not be a single individual’s SSH key.</li>
+						<li>Once our team has created a user for the customer, we will make available their username and endpoint for upload.</li>
+					</ul>
+					<hr>
+						<ul class = "center">
+						<h4>Provide list of URLs to VoiceBase (POC only)</h4>
+						<hr>
+						<li>If you prefer to have VoiceBase upload your calls for a POC, you may provide a CSV file list of URLs to our team, and we will take care of the upload.</li>
+					</ul>
+					<hr>
+
 
 							
 						</div>
