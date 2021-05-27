@@ -1,6 +1,7 @@
 # list.csv is a list of local file names with any directory info
 # required to locate the local file
-# If posting usting URLs, change line 110 to 'media.postUrl' 
+# If posting usting URLs, change line 110 to 'media.postUrl'
+# any extra metadata fields under 'extended' need to be indexed on the VB platform before upload
 
 # command line example
 #  python BatchUploadv3.py --list list.csv --mediadir ./media --results ./res.csv --token  --priority low
@@ -71,11 +72,10 @@ def upload(list_path, mdir, results_path, token, priority):
 
       for raw_filename in list_file:
         filename = raw_filename.rstrip()
-        print filename
-        file = filename[:-4]
+ 
         counter = counter + 1
         md = {
-          "externalId": file,
+          "externalId": filename,
           "extended": {
            "uploadversion": "1"
 
