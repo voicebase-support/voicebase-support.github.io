@@ -1,6 +1,5 @@
-# list.csv is a list of local file names with any directory info
-# required to locate the local file
-# If posting usting URLs, change line 110 to 'media.postUrl'
+# list.csv is a list of file names 
+# If posting usting URLs, change line 107 to 'media.postUrl'
 # any extra metadata fields under 'extended' need to be indexed on the VB platform before upload
 
 # command line example
@@ -78,7 +77,6 @@ def upload(list_path, mdir, results_path, token, priority):
           "externalId": filename,
           "extended": {
            "uploadversion": "1"
-
           }
           } 
         m_data = json.dumps(md)
