@@ -98,15 +98,15 @@ ol.center li
 				<div class = "col-md-12">
 					<h3>Overview</h3>
 		
-					<p class = "center">Indexing makes your upload searchable. If you’ve indexed the VoiceBase platform, you can then make a GET request filtering by specific fields. Similarly, if you’ve indexed in the analytic Workbench, you can filter by making queries on those fields. Some fields are indexed by default, and others may be created by customers.<br><br>
+					<p class = "center">Indexing makes your upload searchable. If you’ve indexed the VoiceBase platform, you can then make a GET request filtering by specific fields. Similarly, if you’ve indexed in the Analytics Workbench, you can filter by making queries on those fields. Some fields are indexed by default, and others may be created by customers.<br><br>
 
-						Indexing is required for <strong>both</strong> the VoiceBase platform and the analytic Workbench of the VoiceBase app, because these employ separate databases.<br><br>
+						Indexing is required for <strong>both</strong> the VoiceBase platform and the Analytics Workbench of the VoiceBase app, because these employ separate databases.<br><br>
 						VoiceBase has indexed the following fields by default:<br>
 
 				'title','description','externalId','callDetails','extended'.<br><br>
 				The ‘callDetails’ parent covers many commonly used fields, which you can view  <a href="callDetails_reference.html">here</a> along with their correct syntax.<br>
 
-				The ‘extended’ field is designed to be used by customers to create their own custom fields. If you have an unusual field not covered in the default 'callDetails', you may create it under ‘extended’. We recommend checking the complete list of fields already indexed under ‘callDetails’ before creating custom fields.
+				The ‘extended’ field is designed to be used by customers to create their own custom fields. If you have an unusual field not covered in the default 'callDetails', you may create it under ‘extended’. We recommend checking the complete list of fields already indexed under 'callDetails' before creating custom fields.
 
 						</p>
 						<h3>Index in Voicebase Platform</h3>
@@ -117,12 +117,12 @@ ol.center li
 						<code>curl -H 'Authorization: Bearer eyJ0e...' 'https://apis.voicebase.com/v3/definition/media/search' -XGET </code><br><br>
 						<p class = "center">Alternately, confirm indexed fields with Postman:</p>
 						<img class="img-responsive" src="images/postman_check_filters.jpeg" alt="postman screenshot" width="500" height="200">
-					<h3>Index in Workbench</h3>
+					<h3>Index in Analytics Workbench</h3>
 					<code>ALTER TABLE media DEFINE metadata:datasetID varchar, metadata:score integer, metadata:uploadversion varchar</code><br><br>
 					<p>Now, your custom indexed fields are viewable in the Schema Tab, along with the default indexed fields. (Schema icon is beside the ‘+’ sign, on the far right.) </p>
 
 				<h3>Configuration for upload</h3>
-				<p>During upload, include the following in your configuration, which sends the files to the analytic Workbench:</p>
+				<p>During upload, include the following in your configuration, which sends the files to the Analytics Workbench:</p>
 				<code>
 				  "publish": {"enableAnalyticIndexing" : True}</code><br><br>
 				  <p>Include a metadata attachment:</p>
@@ -140,7 +140,7 @@ ol.center li
           			<p>Include an “if” statement in your batch GET script:</p>
 					<code>if my_dict['media'][i]['metadata']['extended']['datasetID’] == ‘Company_X’:</code>
 
-				 <h4>Search Workbench</h4>
+				 <h4>Search Analytics Workbench</h4>
 
 			        <p>You may create a query using any field in the Schema tab, which also appear as column headers. For example, to search for previously indexed metadata, use this syntax:</p>
 					<code>SELECT * FROM media WHERE metadata:datasetID = 'Company_X'</code><br><br>
