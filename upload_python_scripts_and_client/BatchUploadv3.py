@@ -1,5 +1,5 @@
 # list.csv is a list of file names 
-# If posting usting URLs, change line 107 to 'media.postUrl'
+# If posting using URLs, change line 107 to 'media.postUrl'
 # any extra metadata fields under 'extended' need to be indexed on the VB platform before upload
 
 # command line example
