@@ -1,5 +1,4 @@
-# list.csv is a list of file names 
-# If posting using URLs, change line 107 to 'media.postUrl'
+# list.csv is a list of file names on local machine
 # any extra metadata fields under 'extended' need to be indexed on the VB platform before upload
 
 # command line example
@@ -21,7 +20,7 @@ def main():
   )
   parser.add_argument(
     '--list', 
-    help = "path to csv list of input files (one per line)", 
+    help = "path to csv list of local files (one per line)", 
     required = True
   )
   parser.add_argument(
