@@ -125,7 +125,7 @@ ol.center li
 						<hr>
 						<ol class = "center">
 							
-					<li> In your VoiceBase <a href="https://app.voicebase.com/login">account</a> go to Settings/Connections/Add Connection to add your s3 connection.</li>
+					<li> In your VoiceBase <a href="https://app.voicebase.com/login">account</a> go to Manage Data/Connections/Add Connection to add your s3 connection.</li>
 					 <li> Choose <strong>Custom</strong> and <strong>Audio</strong> from the dropdown menus.</li>
 					 <li> Fill fields as follows from the AWS Cloudformation/Stacks/Outputs Tab:</li>
 					 <ul class="center">
@@ -137,9 +137,9 @@ ol.center li
 					 <li>Folder = folder name from s3 bucket</li></ul>
 					 <li><a href="https://voicebase.readthedocs.io/en/v3/overview/api_overview.html">Configure</a> specific features for your upload in the <strong>Configuration</strong> tab if needed. This may include creating a <a href="https://voicebase.readthedocs.io/en/v3/how-to-guides/custom-vocabulary.html">Custom Vocabulary</a> list for a more accurate transcription:
 					 	<ul class="center">
-							<li>Go to Settings > Vocabulary Lists > Add</li>
+							<li>Go to Manage Data > Custom Vocab List > Add List</li>
 							<li>Create your list of out of dictionary terms like proper nouns, acronyms, etc that you would like to add to your account’s vocabulary.</li>
-						<li>You may add <a href="https://voicebase.readthedocs.io/en/v3/how-to-guides/custom-vocabulary.html#sounds-like-and-weighting">Sounds like</a> verbiage and a weighting between 0-5, with 0 being the default weight. We recommend 2 to start.</li></ul>
+						<li>You may add <a href="https://voicebase.readthedocs.io/en/stable/how-to-guides/custom-vocabulary.html#sounds-like-and-weighting">Sounds like</a> verbiage and a weighting between 0-5, with 0 being the default weight. We recommend 2 to start.</li></ul>
 					 	<li>Check AWS SQS/Queues to see Responses sent from VoiceBase.</li>
 					 	<li>Go to the Workbench in your account and query to see uploaded results from your AWS bucket.<br>
 						Example: SELECT  * FROM media WHERE dateCreated > "2021-01-01T00:00:00.000+0000"</li><br>
