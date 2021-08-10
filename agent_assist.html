@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>RealTime Agent Assist How-To</title>
+	<meta name="googlebot" content="noindex">
+    <meta content="RealTime Agent Assist setup instructions" name="description">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+				<!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', '253983637');
+</script>
+	<style>
+			<style>
+		body {
+			background-image: url("Asset21x.png");
+}
+@media only screen and (min-width: 415px) {
+	body {
+		background-image: url("Asset21x.png");
+	}
+} 
+
+	#bigFont {
+		font-family: "Montserrat:wght600&display=swap", sans-serif;
+		font-size: 26px;
+		color:#233E60;
+
+	}
+	#matchColorNew {
+		background: white;
+	}
+	#matchColor {
+		background: linear-gradient(to right, #081433 0%, #233E60 100%);
+	}
+ .center {
+	/*text-align: center;*/
+	list-style-position: inside;
+	color:#000000;
+}
+ol.center li
+{
+	color: #000000;
+ text-align: left;
+
+ font-size: 16px;
+}
+.inlineList {
+	 list-style: none; display: inline; }
+}
+.inlineList.after { content: " \00b7"; }
+.inlineList.last-child.after { content: none; }
+
+	h3 { font-family: Montserrat:wght600&display=swap; color:#233E60; }
+	h4 { font-family: Montserrat:wght600&display=swap; color:#233E60; }
+	p {color:#000000;font-size: 16px;}
+	ul {color:#000000;font-size: 16px;}
+	a {color:#0000CD;}
+	
+
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-inverse" id = "matchColorNew">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>	
+					<a class="nav navbar-brand" ></a>
+						<img class="img-responsive" src="logo2.png" style="height:30px; margin-top: 11px">
+					</div>
+			 <div class="collapse navbar-collapse" id="myNavbar">
+			 <ul class="nav navbar-nav" id="bigFont">
+			<!--  <li><img class="img-responsive" src="logo.png" style="height:30px; margin-top: 11px"></li> -->
+			 <li><a id = "bigFont"  href="index.html">Help Center</a></li>
+			 </ul>
+			<ul class="nav navbar-nav navbar-right">
+						<!-- <li class="active"><a href="index.html">Home</a></li> -->
+						<li><a style = "color:#233E60; font-size: 16px;"href="http://info.voicebase.com/contact-sales">Talk to Sales</a></li>
+						<li><a style = "color:#233E60; font-size: 16px;"href="https://www.voicebase.com/talk-to-support/">Talk to Support</a></li>
+						 <li><a style = "color:#233E60; font-size: 16px;"href="https://apis.voicebase.com/developer-portal/#/">Developer Portal</a></li>
+						 <li><a style = "color:#233E60; font-size: 16px;"href="http://status.voicebase.com/">System Status</a></li>
+						 <li><a style = "color:#233E60; font-size: 16px;"href="https://www.voicebase.com">voicebase.com</a></li>
+						
+
+						</ul>
+						</div>
+				</div>
+		</nav> 
+		 <div class="container">
+				<div class="row">
+			<div class="col-md-12">
+			<h3 style="text-align: center">RealTime Agent Assist "How-to"</h3>
+				<hr>
+			</div> 
+			</div>
+			<div class = "row">
+				<div class = "col-md-12">
+					<h3>Overview</h3>
+		
+					<p class = "center">VoiceBase's RealTime Agent Assist coaches agents through customer interactions with smart in-app guidance. VoiceBase customers may set up the feature in their <a href="https://app.voicebase.com">account</a> by first creating Categories based on the agent's script and/or legal disclaimers, and using these Categories to build Checklists. The Checklists are the helper tools for the agents, meaning that as the conversation unfolds with a caller, the Checklists are marked either as complete or incomplete. Alerts may be set to capture inappropriate language or other reminders, and timely Global Popups coach agents with correct wording for product features, billing language, or any other helpful information they may need during their call.<br><br>
+						</p>
+						<h4>Create Categories</h3>
+						<ul class = "center">
+						<li>Training on how to create <strong>Categories</strong> may be accessed <a href="https://app.voicebase.com/static/media/Getting_Started_With_VoiceBase.770cd9e8.pdf"> here</a>.</li>	
+						<li >In your VoiceBase account, go to <strong>Analyst Tools</strong> > <strong>Categories</strong> > <strong>Add Category</strong> </li>
+						<li >Create Categories per agent's script, legal or other disclaimers, and any other required content.</li>
+						<li >Create Categories filtering for impolite or foul language that you can use later for Alerts.</li>
+						</ul>
+
+						<h4>Build and Manage Checklists</h3>
+						
+						<ul class = "center">
+						<li > In your VoiceBase account, go to <strong>RealTime</strong> > <strong>Checklists</strong> > <strong>Add Checklist</strong></li>
+						<li>Choose a Name and External Id for each <strong>Checklist</strong>.</li>
+						<li>Add a <strong>Global Popup</strong> to your Checklist to coach agents on overcoming resistance or using correct wording for products. </li>
+						<li>Choose a Category from the dropdown menu that will hit on words in the call that should trigger your Popup.</li>
+						<li>Add an <strong>Alert</strong> to your Checklist, give it a name, and choose the Category for Alerts from the dropdown menu.</li>
+						<li>Create either a Hard or Soft alert message. </li>
+						<li>Add a <strong>List Item</strong> to your Checklist and give it a name such as "Introduction".</li>
+						<li>Choose the corresponding Category for this List Item from the dropdown menu of Categories.</li>
+						<li>In the "Description" box for the List Item, insert the appropriate part of your agent script.</li>
+						<img class="img-responsive" src="images/ListItem.png" alt="List Item screenshot" width="500" height="200">
+						
+						</ul>
+			
+						<br><br>
+
+			<hr>
+			</div>			
+			</div>
+
+			<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/1701619.js"></script>
+		 </body>
+ </html>     
