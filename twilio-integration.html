@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Twilio Integration</title>
+    <meta content="How to configure the Twilio Integration with VoiceBase" name="description">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+				<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-18590358-1"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', '253983637');
+</script>
+	<style>
+	<style>
+		body {
+			background-image: url("Asset21x.png");
+}
+@media only screen and (min-width: 415px) {
+	body {
+		background-image: url("Asset21x.png");
+	}
+} 
+	#bigFont {
+		font-family: "Montserrat:wght600&display=swap", sans-serif;
+		font-size: 26px;
+		color:#233E60;
+
+	}
+	#matchColorNew {
+		background: white;
+	}
+	#matchColor {
+		background: linear-gradient(to right, #081433 0%, #233E60 100%);
+	}
+ .center {
+	/*text-align: center;*/
+	list-style-position: inside;
+	color:#000000;
+}
+ol.center li
+{
+	color: #000000;
+ text-align: left;
+
+ font-size: 16px;
+}
+.inlineList {
+	 list-style: none; display: inline; }
+}
+.inlineList.after { content: " \00b7"; }
+.inlineList.last-child.after { content: none; }
+
+	h3 { font-family: Montserrat:wght600&display=swap; color:#233E60; }
+	h4 { font-family: Montserrat:wght600&display=swap; color:#233E60; }
+	p {color:#000000;font-size: 16px;}
+	ul {color:#000000;font-size: 16px;}
+	a {color:#0000CD;}
+	
+
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-inverse" id = "matchColorNew">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>	
+					<a class="nav navbar-brand" ></a>
+						<img class="img-responsive" src="logo2.png" style="height:30px; margin-top: 11px">
+					</div>
+			 <div class="collapse navbar-collapse" id="myNavbar">
+			 <ul class="nav navbar-nav" id="bigFont">
+			<!--  <li><img class="img-responsive" src="logo.png" style="height:30px; margin-top: 11px"></li> -->
+			 <li><a id = "bigFont"  href="index.html">Help Center</a></li>
+			 </ul>
+			<ul class="nav navbar-nav navbar-right">
+						<!-- <li class="active"><a href="index.html">Home</a></li> -->
+						<li><a style = "color:#233E60; font-size: 16px;"href="http://info.voicebase.com/contact-sales">Talk to Sales</a></li>
+						<li><a style = "color:#233E60; font-size: 16px;"href="https://www.voicebase.com/talk-to-support/">Talk to Support</a></li>
+						 <li><a style = "color:#233E60; font-size: 16px;"href="https://apis.voicebase.com/developer-portal/#/">Developer Portal</a></li>
+						 <li><a style = "color:#233E60; font-size: 16px;"href="http://status.voicebase.com/">System Status</a></li>
+						 <li><a style = "color:#233E60; font-size: 16px;"href="https://www.voicebase.com">voicebase.com</a></li>
+						
+
+						</ul>
+						</div>
+				</div>
+		</nav> 
+		 <div class="container">
+				<div class="row">
+			<div class="col-md-12">
+			<h3 style="text-align: center">Twilio Integration</h3>
+				<hr>
+			</div> 
+			</div>
+			<div class = "row">
+
+				<div class = "col-md-4">
+				
+					
+						<h3>1: Twilio Configuration</h3>
+						<h4>Step-1: Create Studio workflow</h4>
+						<ol class = "center">
+						<li >Login to Twilio <a href="https://www.twilio.com/console">console</a></li> 	
+						<li>From left Navigation Menu, select the <strong>Studio</strong> option</li>
+						<img class="img-responsive" src="images/twilio_console.png" alt="twilio console" width="300" height="100">	
+						<li>Click + icon to configure the new Studio workflow</li>
+						<img class="img-responsive" src="images/studio_dashboard.png" alt="studio dashboard" width="500" height="200">	
+						<li>New Flow popup will open, enter the name and click on next button</li>
+						<img class="img-responsive" src="images/new_flow.png" alt="new flow" width="500" height="200">
+						<li>Then select the option <strong>Import from JSON</strong>, click next button
+						<img class="img-responsive" src="images/new_flow_tutorial.png" alt="new flow tutorial" width="500" height="200">
+						<li>You will be navigated to next screen of text area where you need to paste the <a href="twilio-int-json.html">JSON</a></li>
+						<img class="img-responsive" src="images/import_flow_json.png" alt="import flow json" width="500" height="200">
+						<li>Paste the <a href="twilio-int-json.html">JSON</a> in the text area after replacing <strong>bearerToken</strong> placeholder with the appropriate token value(make sure angular brackets are also removed) and click the Next button</li>
+						<li>On the workflow screen, select the <strong> Connect to agent </strong> widget and change the agent mobile number and click save button</li>
+						<img class="img-responsive" src="images/change_to_flow.png" alt="change to flow" width="500" height="200">
+					</li></ol>
+					     <h4>Step-2: Configure workflow and webhook</h4>
+					     <ol class = "center">
+						<li>From left menu, select the <strong>Phone Number </strong>option and navigate to <strong>Active Number </strong>dashboard</li>
+						<img class="img-responsive" src="images/active_numbers.png" alt="active numbers" width="500" height="200">
+						<li>From the list of phone numbers, click the appropriate phone number and navigate to <strong>Configuration </strong>page</li>
+						<li>Under <strong>Voice & Fax </strong> section, update the values as below screenshot, ensuring that the webhook URL contains the valid token (same url is configured in studio workflow) and save the configuration</li>	 
+						<img class="img-responsive" src="images/voice_fax.png" alt="Voice and Fax" width="500" height="200">
+					<!-- 	<li>The configuration part is done. Note: The Primary Handler Fails is a fall back mechanism and needs more investigation. This got executed when some how the primary handler i.e. our studio workflow failed. For this there are various option like to handle the incoming calls with API, TwiML Bin or any other way listed in that dropdown</li> --></ol>
+
+
+			<hr>
+			</div>	
+			<div class = "col-md-4">
+				<h3>2: About Twilio Workflow</h3>
+				<p>Twilio Studio information and overview may be accessed <a href="twilio-studio.html">here</a>.</p>
+
+			</div>
+			<div class = "col-md-4">
+					<h3>3: Create a Twilio Workflow</h3>
+			
+				<h4>Create new flow</h4>
+				<ol class = "center">
+				<li>Log into Twilio account and navigate to the Studio Dashboard, then tap the + icon to create a new flow. You can name your flow anything you like.</li>
+				<img class="img-responsive" src="images/add-new-flow.png" alt="Add new flow" width="500" height="200">
+				<li>You’ll notice that the canvas comes with a widget already in place -- that’s the Trigger widget, which kicks off our flow when the trigger we specify is fired. In this case, our trigger is going to be an incoming call, since we want callers to reach our automated menu.
+				<img class="img-responsive" src="images/trigger.png" alt="Trigger image" width="500" height="200">	</li>
+				<h4>Gather User Input</h4>
+				<ol>
+				<li>We’ll start by dragging a Gather Input on Call widget onto the canvas, and connecting it to the Incoming Call trigger by dragging the red dot to the grey dot in the corner of the new widget. We can use this widget to specify what we want the menu to say when the caller picks up. In this example, we’re going with “Hello, How can we direct your call? Press 1 to talk to agent, Press 2 to leave voice message.” but you can enter any message of your choosing, or select Play a Message from the dropdown to play an audio file instead.
+				<img class="img-responsive" src="images/gather-input.png" alt="Gather input" width="500" height="200">	</li></ol>
+				<h4>Split Based On Keys</h4>
+				<ol>
+				<li>We want to route sales calls to agent, so we’ll need some logic that will help us know which one the user wants to connect to. We’ll use the Split Based On... widget to help handle that. Drag it onto the canvas and connect it to the dangling User Pressed Keys dot from our Gather widget.
+				<img class="img-responsive" src="images/split-based-on.png" alt="Split based on" width="300" height="100">	</li>
+				<li>Next, we’ll need to declare the choices we’re looking for in those key presses -- the digits 1 and 2. Tap the red New at the bottom of the Split widget to reveal the Transition On... dropdown menu. Select Condition Matches to create a new Transition.	
+					<img class="img-responsive" src="images/split-key-press.png" alt="Split key press" width="500" height="200">	</li>
+				<li>We’re going to need to connect those calls to agent, and the way to do that is with the Connect Call To widget. Drag those onto the canvas. You’ll need to enter the Phone To Call for each -- do this by tapping on the widget and editing the field in the right sidebar to reflect the correct numbers for agent (the default number will be the one the user called from, so we’ll need to override this).
+				<img class="img-responsive" src="images/connect-call.png" alt="Connect call" width="500" height="200">	</li>
+				<li>Also in the connect to agent configuration enable call recording and timeout seconds to disconnect if agent doesn’t pick up the call.
+				<img class="img-responsive" src="images/connect-callto-config.png" alt="Connect config" width="300" height="100">	</li>
+				<li>Now in split_based_on_key widget if no condition matches then use say play widget and connect this to no condition matched of split based on key widget.
+				<img class="img-responsive" src="images/zoom-out.png" alt="Zoom out image" width="500" height="200">	</li>
+				<li>In say/play widget edit the configuration and enter the message that you want to play, eg we used ‘Sorry Invalid choice, please try again’.
+				<img class="img-responsive" src="images/sayPlay.png" alt="Say play" width="300" height="100">	</li>
+				<li>After the say/play message completed we want again the input from user so, match the AutoComplete of say/play with gather_input widget. (Here we can choose whatever we want according to our requirement like disconnect the call or send message to caller, etc.
+				Now after the connect_to_agent widget, when the call ended or the caller hang up the call in both the cases we want to send recording url with some other metadata to the aws lambda configured. So here we will use Make HTTP request widget after this and named it as webhook.
+				This will send the POST request to the url mentioned in widget with all the payload that we will set.
+				<img class="img-responsive" src="images/webhook1.png" alt="Webhook" width="500" height="200">	</li>
+				<li>Enter the URL, content type and request method in configuration.Then for the metadata payload that we want to send, enter it in request body:
+				<img class="img-responsive" src="images/config1.png" alt="config 1" width="300" height="100">
+				<img class="img-responsive" src="images/config2.png" alt="config 2" width="300" height="100">
+				the values can be used from various widgets used likewise
+				recordingUrl from connect_to_agent widget so value will be like
+				<img class="img-responsive" src="images/json.png" alt="JSON" width="300" height="100"></li>
+	
+				<li>After all the changes are completed, PUBLISH the WORKFLOW and then use it in any mobile number like this
+					<img class="img-responsive" src="images/VoiceFax2.png" alt="Voice and Fax" width="600" height="300"></li></ol>
+				<h4>Export workflow as JSON	</h4>
+				<ol>
+					<li>To export a workflow from studio as a JSON, open the workflow then click on the first default widget i.e. TRIGGER. Under the config section of widget, scroll to bottom and click on SHOW FLOW JSON. Copy the whole JSON and save it.
+				<img class="img-responsive" src="images/trigger_other.png" alt="Trigger" width="500" height="200">	</li></ol>
+				<h4>Import workflow from JSON</h4>
+				<ol>
+				<li>To import a workflow from JSON, select import from JSON option while creating a new Workflow and use the json you saved earlier:
+				<img class="img-responsive" src="images/new_flow_tutorial.png" alt="New flow" width="500" height="200">	</li></ol>		
+				
+			
+					
+				</div>		
+			</div>
+
+			<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/1701619.js"></script>
+		 </body>
+ </html>     

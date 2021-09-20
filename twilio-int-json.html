@@ -1,0 +1,254 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>JSON Twilio Integration</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+				<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-18590358-1"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', '253983637');
+</script>
+	<style>
+
+	#bigFont {
+		font-family: "Montserrat:wght600&display=swap", sans-serif;
+		font-size: 26px;
+		color:#233E60;
+
+	}
+	#matchColorNew {
+		background: white;
+	}
+	#matchColor {
+		background: linear-gradient(to right, #081433 0%, #233E60 100%);
+	}
+ .center {
+	/*text-align: center;*/
+	list-style-position: inside;
+	color:#000000;
+}
+ol.center li
+{
+	color: #000000;
+ text-align: left;
+
+ font-size: 16px;
+}
+.inlineList {
+	 list-style: none; display: inline; }
+}
+.inlineList.after { content: " \00b7"; }
+.inlineList.last-child.after { content: none; }
+
+	h3 { font-family: Montserrat:wght600&display=swap; color:#233E60; }
+	h4 { font-family: Montserrat:wght600&display=swap; color:#233E60; }
+	p {color:#000000;font-size: 16px;}
+	ul {color:#000000;font-size: 16px;}
+	a {color:#0000CD;}
+	
+
+	</style>
+</head>
+<body>
+			 <div class="container">
+				<div class="row">
+			<div class="col-md-12 text-center">
+			<h3 >Import Flow JSON</h3>
+				<hr>
+			</div> 
+			</div>
+			<div class = "row">
+			<div class = "col-md-12" style="text-align: justify">
+			<pre id="json-result">
+			</pre>
+
+		<script>		
+				var newFlow = {
+			  "description": "A New Flow",
+			  "states": [
+			    {
+			      "name": "Trigger",
+			      "type": "trigger",
+			      "transitions": [
+			        {
+			          "event": "incomingMessage"
+			        },
+			        {
+			          "next": "gather_input",
+			          "event": "incomingCall"
+			        },
+			        {
+			          "event": "incomingRequest"
+			        }
+			      ],
+			      "properties": {
+			        "offset": {
+			          "x": 210,
+			          "y": 0
+			        }
+			      }
+			    },
+			    {
+			      "name": "gather_input",
+			      "type": "gather-input-on-call",
+			      "transitions": [
+			        {
+			          "next": "split_based_on_key_pressed",
+			          "event": "keypress"
+			        },
+			        {
+			          "event": "speech"
+			        },
+			        {
+			          "event": "timeout"
+			        }
+			      ],
+			      "properties": {
+			        "speech_timeout": "auto",
+			        "offset": {
+			          "x": 290,
+			          "y": 260
+			        },
+			        "loop": 1,
+			        "finish_on_key": "#",
+			        "say": "Hello, How can we direct your call? Press 1 to talk to agent, Press 2 to leave voice message.",
+			        "stop_gather": true,
+			        "gather_language": "en",
+			        "profanity_filter": "true",
+			        "timeout": 5
+			      }
+			    },
+			    {
+			      "name": "split_based_on_key_pressed",
+			      "type": "split-based-on",
+			      "transitions": [
+			        {
+			          "next": "invalid_choice",
+			          "event": "noMatch"
+			        },
+			        {
+			          "next": "connect_to_agent",
+			          "event": "match",
+			          "conditions": [
+			            {
+			              "friendly_name": "If value equal_to 1",
+			              "arguments": [
+			                "{{widgets.gather_input.Digits}}"
+			              ],
+			              "type": "equal_to",
+			              "value": "1"
+			            }
+			          ]
+			        },
+			        {
+			          "event": "match",
+			          "conditions": [
+			            {
+			              "friendly_name": "If value equal_to 2",
+			              "arguments": [
+			                "{{widgets.gather_input.Digits}}"
+			              ],
+			              "type": "equal_to",
+			              "value": "2"
+			            }
+			          ]
+			        }
+			      ],
+			      "properties": {
+			        "input": "{{widgets.gather_input.Digits}}",
+			        "offset": {
+			          "x": 70,
+			          "y": 600
+			        }
+			      }
+			    },
+			    {
+			      "name": "connect_to_agent",
+			      "type": "connect-call-to",
+			      "transitions": [
+			        {
+			          "next": "webhook",
+			          "event": "callCompleted"
+			        },
+			        {
+			          "next": "webhook",
+			          "event": "hangup"
+			        }
+			      ],
+			      "properties": {
+			        "offset": {
+			          "x": 80,
+			          "y": 900
+			        },
+			        "caller_id": "{{contact.channel.address}}",
+			        "record": true,
+			        "noun": "number",
+			        "to": "+19163183289",
+			        "timeout": 30
+			      }
+			    },
+			    {
+			      "name": "invalid_choice",
+			      "type": "say-play",
+			      "transitions": [
+			        {
+			          "next": "gather_input",
+			          "event": "audioComplete"
+			        }
+			      ],
+			      "properties": {
+			        "voice": "alice",
+			        "offset": {
+			          "x": -330,
+			          "y": 240
+			        },
+			        "loop": 1,
+			        "say": "Sorry Invalid choice, please try again.",
+			        "language": "en-CA"
+			      }
+			    },
+			    {
+			      "name": "webhook",
+			      "type": "make-http-request",
+			      "transitions": [
+			        {
+			          "event": "success"
+			        },
+			        {
+			          "event": "failed"
+			        }
+			      ],
+			      "properties": {
+			        "offset": {
+			          "x": 50,
+			          "y": 1190
+			        },
+			        "method": "POST",
+			        "content_type": "application/json;charset=utf-8",
+			        "body": "{\n\"apiVersion\" :\"{{widgets.gather_input.ApiVersion }}\",\n\"accountSid\": \"{{widgets.gather_input.AccountSid }}\",\n\"recordingUrl\":\"{{widgets.connect_to_agent.RecordingUrl}}\",\n\"sid\": \"{{widgets.connect_to_agent.DialCallSid}}\" ,\n\"duration\": \"{{widgets.connect_to_agent.DialCallDuration}}\" ,\n\"status\": \"{{widgets.connect_to_agent.DialCallStatus}}\" ,\n\"to\": \" {{trigger.call.To}}\",\n\"from\": \" {{trigger.call.From}}\",\n\"caller\": \"{{widgets.gather_input.Caller}}\",\n\"callStatus\": \"{{widgets.gather_input.CallStatus}}\",\n\"direction\": \"{{widgets.gather_input.Direction}}\",\n\"fromCity\": \"{{widgets.gather_input.FromCity}}\",\n\"fromCountry\": \"{{widgets.gather_input.FromCountry}}\",\n\"fromState\": \"{{widgets.gather_input.FromState}}\",\n\"fromZip\": \"{{widgets.gather_input.FromZip}}\",\n\"callerCity\": \"{{widgets.gather_input.CallerCity}}\",\n\"callerCountry\": \"{{widgets.gather_input.CallerCountry}}\",\n\"callerState\": \"{{widgets.gather_input.CallerState}}\",\n\"callerZip\": \"{{widgets.gather_input.CallerZip}}\",\n\"callSid\": \"{{widgets.gather_input.CallSid}}\",\n\"calledCity\": \"{{widgets.gather_input.CalledCity}}\",\n\"calledCountry\": \"{{widgets.gather_input.CalledCountry}}\",\n\"calledState\": \"{{widgets.gather_input.CalledState}}\",\n\"calledZip\": \"{{widgets.gather_input.CalledZip}}\",\n\"toCity\": \"{{widgets.gather_input.ToCity}}\",\n\"toCountry\": \"{{widgets.gather_input.ToCountry}}\",\n\"toState\": \"{{widgets.gather_input.ToState}}\",\n\"toZip\": \"{{widgets.gather_input.ToZip}}\",\n\"confidence\": \"{{widgets.gather_input.Confidence}}\",\n\"speechResult\": \"{{widgets.gather_input.SpeechResult}}\",\n\"called\": \"{{widgets.gather_input.Called}}\"\n}",
+			        "url": "https://iwgome902i.execute-api.us-east-1.amazonaws.com/v3/twilio/<bearerToken>"
+			      }
+			    }
+			  ],
+			  "initial_state": "Trigger",
+			  "flags": {
+			    "allow_concurrent_calls": true
+			  }};
+document.getElementById("json-result").innerHTML = JSON.stringify(newFlow, undefined, 2);
+
+</script>
+
+
+
+<hr>
+</div></div></div>
+</body>
+</html>
