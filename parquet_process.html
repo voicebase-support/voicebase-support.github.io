@@ -123,12 +123,12 @@ ol.center li
 						<h4>Step 2: VoiceBase Portal Setup</h4>
 						<ol class = "center">
 					<li> In your VoiceBase <a href="https://app.voicebase.com/login">account</a> go to <strong>Settings/My Account/Edit/Data Output</strong></li>
-					 <li> On the Products widget, click <strong>Enable </strong>for Enterprise Accelerator (EA)</li>
+					<li> Check that the Products widget for Enterprise Accelerator (EA) is toggled to <strong>Enable </strong>. If not, notify your VoiceBase admin.
 					 <li> Fill fields as follows, then click <strong>Enable:</strong></li>
 					 <ul class="center">
 					 <li> External ID: provided by VoiceBase, previously entered in AWS/Create Stack</li>	
 					 <li> S3 Role: <strong>IAMRoleArn </strong>from AWS Outputs tab, as above</li>
-					 <li>Bucket: <strong>S3Bucket </strong>from AWS Outputs tab, as above</li>
+					 <li>Bucket URL: https://{aws-region}.amazonaws.com/{bucket-name}</li>
 					 <li>Folder: create a folder name  </li></ul>
 					 <li>Go to <strong>Manage Data/Jobs Queue/Add Job Queue</strong></li>
 					 <li>Enter appropriate date and click <strong>Save</strong></li>
