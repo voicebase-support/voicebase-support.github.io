@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title>Parquet Delivery How-To</title>
-		 <meta content="How-to guide to deliver parquet files to s3 bucket"name="description">
-    <meta content="How to setup delivery of parquet files to s3 bucket from VoiceBase app"name="keywords">
+	<title>LivePerson Connection How-To</title>
+		 <meta content="How-to guide to set up LivePerson connection in VoiceBase app"name="description">
+    <meta content="Messaging Interactions API connection in VoiceBase app"name="keywords">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -98,42 +98,20 @@ ol.center li
 		 <div class="container">
 				<div class="row">
 			<div class="col-md-12">
-			<h3 style="text-align: center">Parquet Delivery "How-to"</h3>
+			<h3 style="text-align: center">LivePerson Connection "How-to"</h3>
 				<hr>
 			</div> 
 			</div>
 			<div class = "row">
 				<div class = "col-md-12">
-					<h4>Step 1: AWS Bucket Setup</h4>
-					<ol class = "center">
-					<li >In your AWS Account, navigate to the <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#">Cloudformation Console.</a></li>
-					<li>Click <strong>Create Stack > With new resources (Standard)</strong></li>
-					 <li> In the Amazon S3 URL box, enter the <a href="https://s3.amazonaws.com/public.voicebase.com/enterprise-analytics-s3-parquet-delivery/voicebase-s3-parquet-delivery.json">Cloudformation Template URL.</a></li>
-					 <li> In the <strong>Stack Name</strong> field, type in a name for your Cloudformation Stack, e.g. "voicebase-parquet-delivery"</li>
-					 <li> In the <strong>CompanyName</strong> field, enter a unique string to represent your company (e.g. "mycompanyinc". This will be used to name your resources.</li>
-					 <li> In the <strong>ExternalID</strong> field, enter your External ID. This is provided to you by Voicebase and is in the format xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx. </li>
-					 <li> Choose the region your Voicebase account is hosted in (US or EU). Then click <strong> Next</strong>.</li>
-					 <li> The next screen of stack options is optional. Click <strong>Next</strong>.</li>
-					 <li> Finally, on the review screen, scroll down to check the box  <i>I acknowledge that AWS CloudFormation might create IAM resources with custom names</i>, <br>then click <strong>Create Stack</strong>.</li>
-					 <li> Once the Cloudformation stack has completed creation, click the <strong>Outputs</strong> tab and copy the <strong>IAMRoleArn </strong>(in the format arn:aws:iam:[account number]:role/vb-[CompanyName]-s3-parquet-delivery-role) and the S3Bucket (in the format vb-[CompanyName]-s3-parquet-delivery. You will need these values to enter into the Voicebase Portal.</li>
-					 <li> You will find the S3 bucket created in your list of S3 buckets with the name vb-[CompanyName]-s3-parquet-delivery.</li>
-						</ol>
-						<hr>
 	
-						<h4>Step 2: VoiceBase Portal Setup</h4>
+						
 						<ol class = "center">
-					<li> In your VoiceBase <a href="https://app.voicebase.com/login">account</a> go to <strong>Settings/My Account/Edit/Data Output</strong></li>
-					<li> Check that the Products widget for Enterprise Accelerator (EA) is toggled to <strong>Enable</strong>. If not, notify your VoiceBase admin.
-					 <li> Fill fields as follows, then click <strong>Enable:</strong></li>
-					 <ul class="center">
-					 <li> External ID: provided by VoiceBase, previously entered in AWS/Create Stack</li>	
-					 <li> S3 Role: <strong>IAMRoleArn </strong>from AWS Outputs tab, as above</li>
-					 <li>Bucket URL: https://{aws-region}.amazonaws.com/{bucket-name}</li>
-					 <li>Folder: create a folder name  </li></ul>
-					 <li>Go to <strong>Manage Data/Jobs Queue/Add Job Queue</strong></li>
-					 <li>Enter appropriate date and click <strong>Save</strong></li>
-	                 <li>You should see your Sync Warehouse "Pending" and then "Finished"</li>
-	                 <li>Check in your <strong>S3 Bucket </strong>for the folder (name as created above) containing your files in Parquet format.</li>
+					<li style="text-align: left">In your VoiceBase <a href="https://app.voicebase.com/login">account</a> go to <strong>Manage Data/Connections/Add Connection</strong></li>
+					<li style="text-align: left"> Choose <strong>LivePerson Messaging</strong> from the <strong>Vendor</strong> dropdown menu</li>
+					 <li style="text-align: left">Create a connection name and fill in <strong>Name </strong>field </li>
+					 <li style="text-align: left">Fill in Account ID, Account URL, and keys and secrets from your LivePerson account</li>
+					 <li style="text-align: left">Note that the time may not be set retroactively. Please set the date to the current date.</li>
 					<hr>
 					</ol>
 
