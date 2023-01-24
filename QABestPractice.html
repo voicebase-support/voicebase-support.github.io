@@ -1,0 +1,68 @@
+Quality Assurance Best Practices
+In this section, we will describe the recommended Quality Assurance process to
+help you build reliable Queries and Categories that avoid false positives and
+negatives.
+Once you’ve built your first Queries and Categories, you will want to start
+considering how to audit your Content to ensure it’s still providing you the insights
+you’re looking for.
+Below we will detail the recommended quality assurance process and best
+practices to follow when reviewing your Content.
+Content Auditing
+Note: A general recommendation when building and auditing your Content, is to
+build and test iteratively. This means test each part and then also test the whole
+to ensure you can easily identify any issues in your Content.
+For example, if you wanted to search for a phrase like ‘wheelchair repair’, you
+should first create a Query for just the word ‘wheelchair’ and ensure it pulls up the
+results that you’re looking for (number of hits, accuracy in the transcripts,
+accuracy in the calls themselves). Then, create a Query for the word ‘repair’ and
+ensure it too pulls up the results you’re looking for. Then finally create a Query for
+the phrase ‘wheelchair repair’ and ensure it pulls up the results you’re looking for,
+which should include the results from your previous two tests.
+1. Pick a Query or Category to audit
+2. Identify the Anchor Words in the Content and the variants
+3. Run the Query and select 100 results
+4. For each of the results selected:
+a. Ensure that the selected Anchor Words appear in the Transcript (you
+can use the search feature to do this quickly)
+b. For each hit in the Media, listen to the call to ensure that the audio and
+the transcript match
+c. Be sure to listen for false positives: that is times when the Transcript
+identifies the Anchor Word, and the audio does not
+i. Out of the calls that you’re auditing, best practice is to have a 90
+– 95% accuracy rate
+d. Be sure to listen for false negatives: that is times when the Transcript
+doesn’t identify the Anchor Word, but the audio indicates that it was
+mentioned in the audio
+i. False negatives are trickier to identify as you’re searching for
+something that VoiceBase hasn’t found. This is where using
+www.voicebase.com | support@voicebase.com 58
+Indicative Language can be essential to understand the
+difference between the call and the Transcript.
+For example, if you audit one of your Queries that searches for the term
+‘wheelchair’, and you hear a speaker say ‘please help me find a
+wheelchair’, however, the transcription says: ‘please kelp forest
+whales’, this can be an example of a false negative.
+If you find a number of similar false negatives, meaning, multiple calls
+where the transcription says ‘please kelp forest whales’ instead
+what the audio says which is ‘please help me find a wheelchair’,
+you may actually want to add the phrase ‘please kelp forest
+whales’ as a search term in your Query/Category’s WHERE
+clause.
+e. This is an art as much as a science; if you are encountering a large
+number of false positives, false negatives or mis-transcription, you may
+want to increase the volume of calls you are auditing starting with
+increasing to 150 calls reviewed (so 50 more than you’ve already
+reviewed), then increasing to 200, then 250, etc.
+5. For Content that registers many false negatives, false positives or
+mis-transcriptions, it is also recommended that you have another employee
+audit those Queries and Categories. This will provide another layer of quality
+assurance and may indicate other false positive or false negative speech
+patterns that need to be anticipated.
+6. It is recommended that you perform a Content audit once every 45-60 days to
+ensure that you’re Content is still tuned accurately. Any number of changes
+can be introduced to your VoiceBase system to make your Content less
+effective, including different customer speech patterns, different regional
+dialects due to expanding market reach and improvements to VoiceBase’s
+Voice Analytics detection engine. Therefore, anticipating and planning for
+time to regularly audit your Content will ensure that VoiceBase is always
+meeting your Voice Analytics goals.

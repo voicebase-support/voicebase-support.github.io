@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Glossary of Key VBQL Concepts</title>
+
+  <meta content="FAQ with detailed responses for VoiceBase features and integrations" name="description">
+  <meta content="VoiceBase Query Language Guide, VBQL, Analytics Workbench" name="keywords">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+       <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-18590358-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '253983637');
+</script>
+	<style>
+
+	#bigFont {
+    font-family: "Montserrat:wght600&display=swap", sans-serif;
+		font-size: 26px;
+    color:#233E60;
+
+	}
+  #matchColor {
+    background: linear-gradient(to right, #081433 0%, #233E60 100%);
+  }
+   #matchColorNew {
+    background: white;
+  }
+
+  a {
+    color:#233E60;
+  }
+  h4 { font-family: Montserrat:wght600&display=swap; color:#233E60; }
+  
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-inverse" id = "matchColorNew">
+		<div class="container">
+			<div class="navbar-header">
+     
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>	
+                  <a class="nav navbar-brand" ></a>
+            <img class="img-responsive" src="logo2.png" style="height:30px; margin-top: 11px">
+          </div>
+       <div class="collapse navbar-collapse" id="myNavbar">
+       <ul class="nav navbar-nav" id="bigFont">
+      <!--  <li><img class="img-responsive" src="logo.png" style="height:30px; margin-top: 11px"></li> -->
+       <li><a id = "bigFont"  href="index.html">Help Center</a></li>
+       </ul>
+      <ul class="nav navbar-nav navbar-right">
+            <!-- <li class="active"><a href="index.html">Home</a></li> -->
+            <li><a style = "color:#233E60; font-size: 16px;"href="https://knowledge.liveperson.com/tenfold-voicebase-support/">Talk to Support</a></li>
+             <li><a style = "color:#233E60; font-size: 16px;"href="http://status.voicebase.com/">System Status</a></li>
+             <li><a style = "color:#233E60; font-size: 16px;"href="https://www.voicebase.com">voicebase.com</a></li>
+		
+            </ul>
+            </div>
+        </div>
+    </nav> 
+    <div class="container">
+        <div class="row">
+      <div class="col-md-12">
+      <h4 style="text-align: center">Glossary of Key Concepts</h4>
+        <hr>
+      </div> 
+      </div>
+	    <div class="row">
+			<div class="col-md-1">
+			</div>
+          <div class="col-md-4">
+           <h5>Analytics workbench</h5>
+           <p>The VoiceBase Analytics Workbench is the name of the tool/UI that you will use to investigate your voice,messaging, or chat data, create Queries and Categories and listen to or read transcripts of Media files using the VoiceBase Call Player.</p>
+           <h5>Anchor Words</h5>
+           <p>
+          Anchor Words are keywords that a business identifies in the Discovery phase that
+        ‘anchor’ or act as a starting point for building out robust and thorough Categories.
+          Anchor Words usually relate to business key performance indicators, checkpoints,
+          alerts and concepts. Anchor Words give you a starting point to build from when
+            building a catalogue of Variant Words.</p>
+           <h5>Bearer Tokens</h5>
+           <p>Bearer Tokens are unique access tokens that provide access to your VoiceBase account, data libraries and Content.</p>
+           <h5>Call Player</h5>
+           <p>The VoiceBase Call Player is a tool within the Analytics Workbench that allows you to inspect or listen to specific media or messaging files and investigate specific data points and insights about that file. </p>
+           <h5>Categories</h5>
+           <p>Categories are automated Queries that run on all new data put into your VoiceBase instance. They are built in the same way, with the same syntax as Queries, except Categories use extra attributes to help with organization. </p>
+           <h5>Content</h5>
+           <p>Content is a generic name for the user created Queries, Categories, Word Lists and other data used to analyze the data library. Much of the work you will accomplish in the VoiceBase Analytics Workbench will be creating your Content around your voice or messaging data.</p>
+           <h5>Discourse Analytics</h5>
+           <p>Discourse Analytics is using Voice Analytics with Categories and other tools to discover the flow and content of a conversation. Discourse Analytics discovers how people react to what is said through Sentiment Analysis (what is the sentiment and emotion of the conversation), timing and conversation flow, in conjunction with Categories and other Metrics.</p>
+           <h5>Fields</h5>
+           <p>Fields are data points about your uploaded files. This can include: the length of the file, transitions in the conversation, word count of the conversation, total amount of silence in the conversation, ‘over talk’ (did one person talk over the other), and more.</p>
+            <h5>Indicative Language</h5>
+           <p>Indicative Language refers to contextual language surrounding Anchor Words (and Variant Words) that helps you identify the accuracy of your Queries and Categories, as well as helps you audit your Queries and Categories. Indicative Language is a powerful tool, allowing you to use context clues to improve your Voice Analytics. One of the most common uses for Indicative Language is to increase and expand the precision of your Categories by giving you the context for where your key words and phrases are being used, as well as providing synonyms for key words and phrases. You can then add these additional words and phrases to your Category to ensure it is detecting exactly what you want, no matter the dialect or speech pattern.    
+For example, if you audit one of your Queries that searches for the term "wheelchair", and you get a hit where the transcription says: ‘Please help me find a book in the wheelchair’, you can be pretty confident (thanks to the Indicative Language specifically) that this hit is actually a false positive (which means the search term was found, but it was actually a mis-transcription or some other error). </p>
+         </div>
+          <div class="col-md-1">
+      </div>
+          <div class="col-md-4">
+
+         
+
+
+           <h5>Media</h5>
+           <p>Media includes all audio or messaging data and their associated metadata. When Media is uploaded to VoiceBase, it is automatically uploaded into a default Media library named ‘media’. This library/name can then be accessed using VBQL to gain insights, and eventually build your Categories. </p>
+           <h5>mediaId</h5>
+           <p>MediaId (usually written ‘mediaId’) is the unique identifier assigned to all data coming into the system, whether speech, messaging, or chat. The Media ID is used to identify each piece of Media and the insights and metadata associated with the Media. </p>
+           <h5>Metrics</h5>
+           <p>Metrics are data points about the conversations in your uploaded Media, and are used primarily for voice data. There are more than 40 Paralinguistic Metrics available including sentiment of the speakers in the conversation, silence and ‘over talk’ of the individual speakers in voice data, vocabulary of the speakers, and more. Not all metrics are suitable for use with messaging, but some are appropriate and may be used.</p>
+           <h5>Queries</h5>
+           <p>Queries are used to retrieve data that fit search parameters. They are equivalent to searches that would be run in your favorite search engine. The key difference is that the VBQL language is specifically designed to search through Media data including audio, transcripts and metadata. </p>
+           <h5>Transcriptions</h5>
+           <p>A Transcription is a written script of the voice or messaging data that you’ve uploaded, produced by VoiceBase’s AI powered analytics engine and Natural Language Processing. The Queries and Categories that you will create will be searching the TranVariant Words         
+Variant Words are alternate ways to describe your Anchor Words and concepts. These can be synonyms, antonyms, related concepts, expanded concepts, and/or more verbose concepts of your Anchor Words. Anchor Words and Variant Words will be the basis for most of your Categories. While building a catalog of Variant Words, you will also naturally get exposed to additional Anchor Words and concepts that can then be folded into existing and new Categories and Queries.</p>
+
+           <h5>Voice Analytics</h5>
+           <p>Voice Analytics is the process of using tools (like VoiceBase) to process, analyze, organize and gain insight from voice and messaging data. In the case of voice data, this involves converting a audio files to a written transcript as well as extracting key points of information from both the audio and transcript that can be analyzed to achieve business goals. </p>
+           
+
+          </div>
+        </div>  
+     </div>
+
+     <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/1701619.js"></script>
+    </body>
+ </html>  
+
+

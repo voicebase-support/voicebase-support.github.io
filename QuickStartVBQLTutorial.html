@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>QuickStart VBQL Tutorial</title>
+
+  <meta content="QuickStart VoiceBase Query Language Tutorial" name="description">
+  <meta content="VoiceBase Query Language Guide, VBQL, Analytics Workbench, Categories" name="keywords">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+       <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-18590358-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '253983637');
+</script>
+	<style>
+
+	#bigFont {
+    font-family: "Montserrat:wght600&display=swap", sans-serif;
+		font-size: 26px;
+    color:#233E60;
+
+	}
+  #matchColor {
+    background: linear-gradient(to right, #081433 0%, #233E60 100%);
+  }
+   #matchColorNew {
+    background: white;
+  }
+
+  a {
+    color:#233E60;
+  }
+  h4 { font-family: Montserrat:wght600&display=swap; color:#233E60; }
+  
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-inverse" id = "matchColorNew">
+		<div class="container">
+			<div class="navbar-header">
+     
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>	
+                  <a class="nav navbar-brand" ></a>
+            <img class="img-responsive" src="logo2.png" style="height:30px; margin-top: 11px">
+          </div>
+       <div class="collapse navbar-collapse" id="myNavbar">
+       <ul class="nav navbar-nav" id="bigFont">
+      <!--  <li><img class="img-responsive" src="logo.png" style="height:30px; margin-top: 11px"></li> -->
+       <li><a id = "bigFont"  href="index.html">Help Center</a></li>
+       </ul>
+      <ul class="nav navbar-nav navbar-right">
+            <!-- <li class="active"><a href="index.html">Home</a></li> -->
+            <li><a style = "color:#233E60; font-size: 16px;"href="https://knowledge.liveperson.com/tenfold-voicebase-support/">Talk to Support</a></li>
+             <li><a style = "color:#233E60; font-size: 16px;"href="http://status.voicebase.com/">System Status</a></li>
+             <li><a style = "color:#233E60; font-size: 16px;"href="https://www.voicebase.com">voicebase.com</a></li>
+		
+            </ul>
+            </div>
+        </div>
+    </nav> 
+    <div class="container">
+        <div class="row">
+      <div class="col-md-12">
+      <h4 style="text-align: center">QuickStart VoiceBase Query Language Tutorial</h4>
+        <hr>
+      </div> 
+      </div>
+	    <div class="row">
+    <div class = "col-md-12">
+           <h4>Introduction</h4>
+<p>In this section, we will go through a tutorial on how to use VBQL (VoiceBase Query Language). If you are familiar or have had experience with SQL, you will find similarities with VBQL.<br>
+
+VBQL queries can be quite complex. This tutorial is aimed towards beginners and how they can use VBQL to create accurate queries. Let’s start with some things to keep in mind when working with VBQL</p>
+
+<h4>Guidelines for New Queries</h4>
+<p><strong>Write out the goal in plain language first</strong>. For example, I want to find all the times the agent said “survey” during the last 30 seconds of the call.<br>
+
+<strong>Understand the goal</strong>. Is it more important that the agent sticks to the script and says “thank you”? Or, is it okay if the agent says “thanks”?<br>
+
+<strong>Start with a simple, catch-all query </strong>to find conversations with the event you’re looking to identify. If I’m looking for all the times the agent says "thank you", my script might look something like this:<br>
+<img class="img-responsive" src="images/vbql_screenshots/imageA.png" alt="new flow" width="500" height="200">
+<br>
+Looking at the screenshot above, there are two areas highlighted.<br>
+
+The top image is the VBQL query itself. <br>
+<code>SELECT mediaId,HITS()</code><br> are going to show "Hits" and "Media Id" in the results (bottom red rectangle). FROM media refers to the database I am searching. WHERE “agent” SAYS “thank you” is going to search the database and find every instance where the agent says “thank you”.<br>
+
+In the bottom red rectangle we see one of the results where there is a record with 2 hits. This record/transcription has 2 places where the agent said “thank you”:<br>
+
+<br></p>
+<h4>Voice Data: Mono vs Stereo</h4>
+<p>Note the type of media you are working with. Are the voice conversations stereo or mono? When the conversations are stereo, you will typically have the Agent on the left channel and the Caller on the right channel. If the calls are mono, every query will need to show WHERE * SAYS instead of calling out the Agent or Caller. Remember that you could still use <code>WHERE * SAYS </code>for stereo as well. For example, maybe you want to find where either the caller or agent is saying a product name.</p>
+
+<h4>Expanding the Query with Operators</h4>
+<p>Let’s start to expand out our query and look at different results we can get. Here’s the original query again:<br>
+
+<code>SELECT mediaId, HITS() FROM media
+WHERE "agent" SAYS "thank you"</code>
+<br>
+We’re going to focus on the operators we can use after SAYS:</p>
+
+<h5>AND Operator</h5>
+<p>The AND operator is used to search two terms in the entire transcript. If the query is, 
+	<code>WHERE "agent" SAYS "thank you" AND "survey"</code> we are looking searching the entire transcript for where the agent says “thank you” and “survey”.</p>
+
+<h5>&& Operator</h5>
+<p>Using the && (double ampersand) operator is a little different than AND. This time, the query is <code>WHERE "agent" SAYS ("thank you" && "survey") </code>and we’re going to look at the speaker turn where the agent says “thank you” and “survey”. For example, if the agent were to say, “thank you for calling. Would you help us by taking a survey?”</p>
+
+<h5>OR Operator</h5>
+<p>Where AND and && search for two terms together, the OR operator is used to search one term or the other. Like AND, this is going to search the entire transcript. The query could be, <code>WHERE "agent" SAYS "thank you" OR "thanks"</code></p>
+
+<h5>|| Operator</h5>
+<p>The || (double pipes or pipes) operator is different because it looks at the speaker turn like the && operator. The query here could be, <code>WHERE "agent" SAYS ("thank you" || "thanks")</code></p>
+
+<h5>AND NOT Operator</h5>
+<p>The AND NOT operator is used when you want to find a specific term and not another term that might be similar. For example, we might want to find where agent’s are specifically saying “thanks for calling” and not “appreciate you calling”. Again, like AND or OR, this is going to search the entire transcript.<br></p>
+
+<h5>! Operator</h5>
+<p>The ! (bang) operator, like the && and || operators, is going to search the speaker turn. Our query is going to look like this:<br> <code>WHERE "agent" SAYS ("thanks for calling" && ! "appreciate you calling")</code></p>
+
+<h5>Wildcard * Operator</h5>
+<p>Using * (wildcard) will help increase matches and simplify your queries. Let’s say we wanted to find “week”, “weekend”, “weekday”, or “weeks”. The query would look like <code>WHERE "agent" SAYS "week*"</code></p>
+
+<h5>SLOP and / Operator</h5>
+<p>The SLOP and / operators are broader wildcard queries. Using SLOP or / allows you to fill in the blanks with phrases. For example, you could use a query like:<br>
+
+<code>WHERE "agent" SAYS ("thanks for calling" || "thank you for calling" || "thanks so much for calling") </code>
+
+but a simpler way would be to use:<br>
+
+<code>WHERE "agent" SAYS ("thank* calling"/3)</code><br> 
+
+<p>Above, we’re using a * (wildcard) for the word "thank" to cover "thank" and "thanks". the /3 allows for 3 wildcard terms between "thank*" and "calling". So, "thanks for calling”, “thank you for calling”, “thanks so much for calling” would all match here.</p>
+
+<h5>[beginningtime s, endingtime s]</h5>
+
+<p>Time constraints. Useful for finding something during the first xx seconds of a conversation or during the last xx seconds of a conversation.</p>
+
+<h4>Adding Operators to the Query</h4>
+<p>Our initial VBQL query was:<br><br>
+
+<code>SELECT mediaId, HITS() FROM media
+WHERE "agent" SAYS "thank you"</code><br><br>
+
+The above query is going to find all conversations where the agent says “thank you”. That could be at any point during the conversation.
+
+Now that we’ve learned how we can expand our query to gather more meaningful results, let’s expand our query. Maybe I want to find all forms of gratitude by the agent AND I want the query to focus on the last 30 seconds of the call. Using our operators from above, we can now do this:<br>
+<br>
+<code>SELECT mediaId, HITS() FROM media
+WHERE "agent" SAYS ("thank*"||"you for call*"/2||"appreciate*||"wonderful day"/2||"great day"/2||"good morning"/2||"good after*"/2||"good night"/2||"enjoy day"/2||"enjoy week*"/2||"great week*"/2||"good week*"/2||"cheers") [-30s,]</code><br><br>
+
+With the above query, I’m now looking for any instance where the agent expresses gratitude by saying something like, “thanks for calling”, “have a good weekend”, “enjoy the day” or “great day” during the last 30 seconds of the call.</p>
+
+<h4>Useful Queries for Your Workbench</h4>
+<p>Below are five useful queries to add to your workbench:<br>
+
+<h5>Date Range - Find records within a given date range</h5>
+
+<code>SELECT * FROM media WHERE dateCreated > '2022-06-06T00:00:00.000Z' AND dateCreated < '2002-08-08T23:59:59.000Z'
+ORDER BY dateCreated DESC</code>
+
+<h5>Greater than date - Find records after a given date range</h5>
+
+<code>SELECT * FROM media WHERE dateCreated > "2022-06-06T08:00:00.000Z"</code>
+
+<h5>Media ID - Find a record using the mediaId</h5>
+
+<code>WHERE mediaId="4da3b01e-d954-4aeb-a3b3-d059a1da93d1"</code>
+
+<h5>All conversations - Finds all records</h5>
+
+<code>SELECT * FROM media
+WHERE * ORDER BY dateCreated DESC</code>
+
+<h5>Interaction Type - Find all records by speech (voice) or chat</h5>
+
+<code>SELECT *, HITS() FROM media
+WHERE interactionType="speech"</code><br>
+
+<code>WHERE interactionType="chat"</code><br>
+
+<h4>Advanced Query Language</h4>
+<p>Here are some additional options you can add to your queries:<br> 
+
+<h5>LIMIT</h5>
+<p>Use LIMIT (row_count) to increase the numbers of records returned in a search.
+
+
+The default result is 10 rows.
+
+
+Using LIMIT, you can increase the number of rows. Maximum to return is 50 results. 
+<img class="img-responsive" src="images/vbql_screenshots/imageB.png" alt="new flow" width="500" height="200">
+
+
+<h5>ORDER BY</h5>
+<p>Orders results by specific field(s) for ad-hoc query building. Options include; field_name, alias_name, ASC (ascending) or DESC (descending)</p>
+<img class="img-responsive" src="images/vbql_screenshots/imageC.png" alt="new flow" width="500" height="200">
+
+<p>
+In this example, we are using ORDER BY to sort by the Date Created column in DESC (descending) order.</p>
+<h4>Filter by METADATA</h4>
+<p>Utilize <a href= "https://support.voicebase.com/indexing_how-to.html">metadata fields</a> within queries to specify a subset of conversations to analyze.<br>
+
+Examples would be metadata.department="international shipping" or metadata.campaign_name=
+EOY 50% Off"<br><br>
+<img class="img-responsive" src="images/vbql_screenshots/imageD.png" alt="new flow" width="500" height="200"></p>
+          </div>
+        </div>  
+     </div>
+
+     <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/1701619.js"></script>
+    </body>
+ </html> 

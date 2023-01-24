@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Advanced Tips and Tricks for Category Building</title>
+
+  <meta content="Guide to VoiceBase Query Language use" name="description">
+  <meta content="VoiceBase Query Language Guide, VBQL, Analytics Workbench" name="keywords">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+       <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-18590358-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '253983637');
+</script>
+	<style>
+
+	#bigFont {
+    font-family: "Montserrat:wght600&display=swap", sans-serif;
+		font-size: 26px;
+    color:#233E60;
+
+	}
+  #matchColor {
+    background: linear-gradient(to right, #081433 0%, #233E60 100%);
+  }
+   #matchColorNew {
+    background: white;
+  }
+
+  a {
+    color:#233E60;
+  }
+  h4 { font-family: Montserrat:wght600&display=swap; color:#233E60; }
+  
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-inverse" id = "matchColorNew">
+		<div class="container">
+			<div class="navbar-header">
+     
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>	
+                  <a class="nav navbar-brand" ></a>
+            <img class="img-responsive" src="logo2.png" style="height:30px; margin-top: 11px">
+          </div>
+       <div class="collapse navbar-collapse" id="myNavbar">
+       <ul class="nav navbar-nav" id="bigFont">
+      <!--  <li><img class="img-responsive" src="logo.png" style="height:30px; margin-top: 11px"></li> -->
+       <li><a id = "bigFont"  href="index.html">Help Center</a></li>
+       </ul>
+      <ul class="nav navbar-nav navbar-right">
+            <!-- <li class="active"><a href="index.html">Home</a></li> -->
+            <li><a style = "color:#233E60; font-size: 16px;"href="https://knowledge.liveperson.com/tenfold-voicebase-support/">Talk to Support</a></li>
+             <li><a style = "color:#233E60; font-size: 16px;"href="http://status.voicebase.com/">System Status</a></li>
+             <li><a style = "color:#233E60; font-size: 16px;"href="https://www.voicebase.com">voicebase.com</a></li>
+		
+            </ul>
+            </div>
+        </div>
+    </nav> 
+    <div class="container">
+        <div class="row">
+      <div class="col-md-12">
+      <h4 style="text-align: center">Advanced Tips and Tricks</h4>
+        <hr>
+      </div> 
+      </div>
+	    <div class="row">
+			<div class="col-md-1">
+			</div>
+          <div class="col-md-4">
+           
+<h5>Advanced Query/Category Tips and Tricks</h5>
+<p>This section will detail some tips and best practices on the art of Query/Category
+building to help you get the most out of VoiceBase’s powerful Voice Analytics
+tools.
+Query WHERE Clause Tips
+When you want to search your Media data for specific terms and phrases, the
+WHERE clause is how you will do that. As a reminder, the WHERE clause looks like
+this:
+SELECT mediaId, hits()
+FROM media
+WHERE "Agent" SAYS "may be recorded"/1
+LIMIT 100
+Eventually, when you want to start building robust and comprehensive Categories,
+one way you can do so is by chaining together a series of search terms and
+phrases using the WHERE clause. When you do this approach, it is recommended
+that you search for phrases that are no more than 2-3 words long, and that you use
+the wildcard and slop capabilities of VBQL to anticipate variance in words, tenses
+and different speech patterns.
+Let’s walk through what we mean with the following example:
+SELECT *
+FROM media
+WHERE "Customer" SAYS (("price drop*"/2 || "price change*"/2) && ("refund*" ||
+"reimburs*"))
+www.voicebase.com | support@voicebase.com 43
+Let’s break down each part of this Query:
+The SELECT Statement
+This SELECT statement is selecting all available columns/Fields that we have setup
+in our VoiceBase system.
+SELECT *
+The FROM Statement
+This FROM statement is selecting all available Media files from our default Media
+database called ‘media’.
+FROM media
+The WHERE Statement
+WHERE "Customer" SAYS
+(
+("price drop*"/2 || "price change*"/2) && ("refund*" || "reimburs*")
+)
+Note: We’ve added some additional spacing to the WHERE clause from before to
+show more clearly all that is happening. This extra ‘whitespace’ is ignored by the
+Analytics workbench, so if writing your Queries and Categories this way is easy for
+you, then feel free to space things out to show nesting more clearly!
+This WHERE statement is saying the following:
+- When a Customer says any of the following things, then that Media file is
+qualified as a result for this query:
+o The following rules are first grouped in a parenthesis so that the
+Customer has to say at least one phrase from this group (which we will
+dive deeper into below):
+("price drop*"/2 || "price change*"/2)
+AND at least one phrase from this group (which we will also dive deeper
+into below):
+("refund*" || "reimburs*")
+Finally, the customer must say the qualifying phrases in the same speaking
+turn (meaning before the agent speaks again) because it is using the
+‘&&’ operator.
+o Then, diving deeper into this sub-group:
+("price drop*"/2 || "price change*"/2)
+the customer must say either:
+▪ ‘Price drop’, ‘price drops’, ‘price dropping’, ‘price dropped’, ‘price
+may have dropped’, ‘price has dropped’, etc.
+● This is due to using the Wildcard at the end of ‘drop’ which
+tells VoiceBase to search for any endings and tenses for
+the word ‘drop’.
+● This is also due to the ‘/2’ Slop indicator, telling VoiceBase
+to search for any phrases up to 4 words long, where up to
+two of the words are unknown and may be between or
+around the words ‘price’ and ‘drop’
+▪ OR (because of the ‘||’) ‘Price change, ‘price changes, ‘price
+changing, ‘price changed, ‘price may have changed, ‘price has
+changed, etc.
+● This is due to using the Wildcard at the end of ‘change’
+which tells VoiceBase to search for any endings and
+tenses for the word ‘change’.
+● This is also due to the ‘/2’ Slop indicator, telling VoiceBase
+to search for any phrases up to 4 words long, where up to
+two of the words are unknown and may be between or
+around the words ‘price’ and ‘change’
+o Finally, diving deeper into this sub-group:
+("refund*" || "reimburs*")
+www.voicebase.com | support@voicebase.com 45
+the customer must say either:
+▪ ‘refund’, ‘refunds’, ‘refunding’, ‘refunded’, etc.
+● This is due to using the Wildcard at the end of ‘refund’
+which tells VoiceBase to search for any endings and
+tenses for the word ‘refund’.
+▪ OR (thanks to the ‘||’) ‘reimburse’, ‘reimburses’, ‘reimbursing’,
+‘reimbursed’, etc.
+● This is due to using the Wildcard at the end of ‘reimburs’
+which tells VoiceBase to search for any endings and
+tenses for the word ‘reimburs’.
+Note: in this case, due to the way the word ‘reimburse’ works in
+English, the ‘e’ is left off the end since depending on the
+tense of the word, the vowel may be an ‘e’ or an ‘i’ in the
+transcript.
+You’ll note that rather than write a series of phrases exactly as we’d expect them to
+be said in the conversation, we instead used the WHERE clause to build smaller
+keywords and phrases that could be combined in many ways.
+We also utilized the flexibility of the Wildcard and Slop Operators to allow
+VoiceBase to find as many variants of these keywords and phrases as possible,
+without us having to write them all out or anticipate things like filler words and
+regional speech patterns.</p>

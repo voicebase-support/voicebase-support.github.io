@@ -1,0 +1,257 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Building VBQL Queries and Categories</title>
+
+  <meta content="Building VoiceBase Query Language Queries and Categories" name="description">
+  <meta content="VoiceBase Query Language Guide, VBQL, Analytics Workbench" name="keywords">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+       <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-18590358-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '253983637');
+</script>
+	<style>
+
+	#bigFont {
+    font-family: "Montserrat:wght600&display=swap", sans-serif;
+		font-size: 26px;
+    color:#233E60;
+
+	}
+  #matchColor {
+    background: linear-gradient(to right, #081433 0%, #233E60 100%);
+  }
+   #matchColorNew {
+    background: white;
+  }
+
+  a {
+    color:#233E60;
+  }
+  h4 { font-family: Montserrat:wght600&display=swap; color:#233E60; }
+  
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-inverse" id = "matchColorNew">
+		<div class="container">
+			<div class="navbar-header">
+     
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>	
+                  <a class="nav navbar-brand" ></a>
+            <img class="img-responsive" src="logo2.png" style="height:30px; margin-top: 11px">
+          </div>
+       <div class="collapse navbar-collapse" id="myNavbar">
+       <ul class="nav navbar-nav" id="bigFont">
+      <!--  <li><img class="img-responsive" src="logo.png" style="height:30px; margin-top: 11px"></li> -->
+       <li><a id = "bigFont"  href="index.html">Help Center</a></li>
+       </ul>
+      <ul class="nav navbar-nav navbar-right">
+            <!-- <li class="active"><a href="index.html">Home</a></li> -->
+            <li><a style = "color:#233E60; font-size: 16px;"href="https://knowledge.liveperson.com/tenfold-voicebase-support/">Talk to Support</a></li>
+             <li><a style = "color:#233E60; font-size: 16px;"href="http://status.voicebase.com/">System Status</a></li>
+             <li><a style = "color:#233E60; font-size: 16px;"href="https://www.voicebase.com">voicebase.com</a></li>
+		
+            </ul>
+            </div>
+        </div>
+    </nav> 
+    <div class="container">
+        <div class="row">
+      <div class="col-md-12">
+      <h4 style="text-align: center">Building VBQL Queries and Categories</h4>
+        <hr>
+      </div> 
+      </div>
+	    <div class="row">
+    <div class = "col-md-12">
+           <h4>Difference between Queries and Categories</h4>
+	<p>Before we write our first Queries, it’s important to understand the difference
+between Queries and Categories. Queries and Categories both use the VBQL and
+are ways to search for data within your voice or messaging Media library.
+The difference between the two rests on how and when the VBQL is executed.
+Queries are a manual way to search through your data. Every Query search is
+executed only when the <strong>Run Query</strong> button is pressed. Running a Query is very similar to
+how you would search in your favorite search engine.
+In contrast, Categories execute their VBQL every time new data
+enters your VoiceBase system.</p>
+<h4>The Simplest Query</h4>
+<p>We’ll start with something simple. 
+Copy and paste the following into the VBQL Editor:<br>
+<code>SELECT * FROM media</code><br>
+
+Here’s a breakdown of this query:
+<ul>
+<li>SELECT is the command that sets what data is returned by the query. SELECT
+is the most common command you will use, and indicates you want
+VoiceBase to go retrieve data for you from your database.</li>
+<li>* is a wildcard character that is used to designate that you’d like to select all
+columns/Fields for your data.</li>
+<li>FROM is the keyword to set which Media library is being queried</li>
+<li>media is the default library for ingested data.</li>
+</ul>
+Your results should appear on the bottom of the VBQL Editor after running this
+Query. 
+</p>
+
+<h4>Searching for an Anchor Word</h4>
+<p>Let's modify the previous example to search for a specific word. Let’s look for
+someone, anyone, saying the word “error.” “error” is what we would call an Anchor
+Word. It isn’t robust enough to save as a final Category, but it’s a good start for
+Discovery and Category development.<br>
+<code>SELECT *
+FROM media
+WHERE * SAYS "error"</code><br><br>
+WHERE is the command to set search parameters you’d like to find in your 
+data. When you use a WHERE clause/command, you first specify who is saying the
+key word you’re looking for , or, as we did in the example above, we use the
+wildcard ‘*’ to indicate either speaker could be saying our keyword. Then you use
+the SAYS clause and specify your keyword you’re looking for, using quotes to
+indicate if it’s a string as necessary.<br>
+<i>Note: Depending on your familiarity with programming and/or query languages,
+you may or may not be familiar with the concept of a string. A string is a type of
+data that a computer recognizes as a string of characters (letters, numbers and
+even symbols) designated as those characters wrapped in either single or double
+quotes. You’ll note that after the WHERE command, we wrapped the word “error”
+in double quotes. Wrapping words in either single or double quotes indicates to
+the VBQL Query Editor that everything between the quotes is a string. Since the
+data you are trying to find, in this case the keyword “error”, is also considered a
+string data type in VoiceBase, you’ll want to make sure you wrap your word in
+quotes in your query. Also note, the VBQL is not case sensitive, meaning searching
+for “error” searches for: “error”, “Error”, “eRROr”, etc.</i>
+<br><br>
+Only the String datatype requires the surrounding quotes.</p>
+<h4>Simplifying the Return</h4>
+<p>Using the wildcard character (*) is a powerful way to return as much data as
+possible, as quickly as possible. The main downside to the wildcard character is
+that it doesn’t give you fine control over exactly what specific data you’d like to see.
+As mentioned in the ‘Query Tabs – The Results Table’ section, the Query results
+table displays columns/Fields based on which columns/Fields are SELECTed in the
+Query.
+VBQL Reference Guide for a full list and descriptions.
+We’re going to be selecting only the mediaId in our next query. It is the ID for the
+specific Media item in the database.
+To return only the mediaId for each call in the return it would be added to the
+SELECT part of the Query. In this case we will replace the * wildcard with mediaId
+(which is case sensitive):<br>
+<code>SELECT mediaId
+FROM media
+WHERE * SAYS "error"</code><br><br>
+
+You’ll note now that our results table now only includes the system default
+field/column for the Play button, as well as our only SELECTed column: mediaId.</p>
+           
+
+<h4>Viewing Hits</h4>
+<p>Next, we will evolve our query by adding the ‘hits()’ field/column to our SELECT
+statement. One thing that will make viewing the results easier and more efficient
+will be adding text snippets of the hits in the voice data. We can do that by
+selecting the hits() data from the results.
+Like how we added mediaId, we’re going to be adding hits() to the SELECT portion
+of our Query:<br>
+<code>SELECT mediaId, hits()
+FROM media
+WHERE * SAYS "error"</code><br>
+Our results will now include a button that will take you to a JSON window showing
+what phrases were hit in the Query and when they occurred in each piece of
+audio.
+<br>
+Click on the ‘...’ button for any row/item under the hits() column to expand the
+output.<br><br>
+<i>Note: This data is formatted using a syntax called JSON (a.k.a. JavaScript Object
+Notation). You don’t need to be a JSON expert in order to read the results, you just
+need to remember the basic structure of JSON. JSON formats our results by
+grouping the names of an attribute with its specific data point. These are
+commonly referred to as name/value pairs. Then, if a group of name/value pairs
+can be nested within a greater category, they are commonly organized that way
+(this can sometimes be called a parent and child relationship). For example, in
+our results, ‘fieldValues’ is the parent group, while ‘startMs’, ‘endMs’, ‘startRatio’,
+‘line’, ‘speaker’, and ‘text’ are all the child name/value pairs under this
+group/parent. You can learn more about JSON <a href="https://www.w3schools.com/js/js_json_intro.asp">here</a>.</i><br><br>
+The information we’re going to be looking at right now is under the “fieldValues”
+section.
+
+The key name/value pairs to look at are: “startMs” and “endMs” are the start and
+end times of the hit in milliseconds respectively, “speaker” indicates which line the
+audio came from and “text” is the Transcription of what triggered the hit.
+Note: The “speaker” name/value pair is only useful in stereo audio where the
+speech data is split between the left and right audio channels. Names and
+channels are configurable.</p>
+<h4>Searching by Speaker Channel</h4>
+<p>For Media with stereo audio or in a messaging conversation, a Query may specify the name of the speaker (Agent, Caller, Bot, etc.):<br>
+
+<code>SELECT mediaId, hits()
+FROM media
+WHERE "Caller" SAYS "error"</code><br>
+<i>Note: Agent, Caller, and Speaker are the default keywords that can be redefined
+in the VoiceBase configuration.</i><br>
+Another option is to use an asterisk (*) as a wildcard, to include hits for any speaker within the conversation:<br>
+<code>SELECT mediaId, hits()
+FROM media
+WHERE * SAYS "error"</code><br>
+If the audio is rendered in mono, the phrase is simply attributed to "Speaker".
+ </p>
+
+<h4>Searching by Metadata</h4>
+<p>Visible in the Schema Viewer, there is a list of available metadata values that can
+be included in Queries with the WHERE clause. One common use for Querying
+metadata is to make sure a call is valid for a certain Query by checking on the call
+length. There are several ways to do this:
+<ul>
+<li> to use the length in milliseconds</li>
+<li>to look at the number of transitions between the Agent and Caller</li>
+<li>to check the length by word (example shown below)</li>
+</ul>
+<code>count
+SELECT mediaId, hits()
+FROM media
+WHERE "Agent" SAYS "may be recorded"
+AND wordCount > 3000</code>
+</p>
+<h4>Changing the LIMIT</h4>
+<p>By default, the Analytics Workbench limits the results from a query to the top 10
+conversations. For testing and development, it is good to look at a larger sample size. Using
+the LIMIT clause will allow you to specify how many results you want returned; the maximum is 50.
+Note: It will always show the total number of conversations with hits and the size of the call
+library on top of the results window. Also note, that the LIMIT clause doesn’t
+require you to use another operator like AND or OR, it can be used by itself just
+like in the example below:<br><br>
+<code>SELECT mediaId, hits()
+FROM media
+WHERE "Agent" SAYS "may be recorded"/1
+LIMIT 50</code></p>
+<h4>Saving Your Query as a Category</h4>
+<p>After you’ve developed and tested your Query it’s time to save it as a Category. The
+process for saving your Query as a Category is as follows:
+<br>
+<ul>
+  <li>Click on <strong>Save as category</strong> under the VBQL editor</li>
+<li>Determine which "Collection" name is most appropriate, as this will be important when viewed in Tableau</li>
+<li>Choose the appropriate Collection name from the dropdown</li>
+<li>Fill out all other required and optional fields in your new Category tab and
+save the new Category</li>
+</ul><br>
+Voila! You now have a new Category that will begin automatically processing
+on each new piece of Media entering your VoiceBase system.</p><br>
+
+          </div>
+        </div>  
+     </div>
+
+     <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/1701619.js"></script>
+    </body>
+ </html> 

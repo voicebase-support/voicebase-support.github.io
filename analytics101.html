@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Analytics 101</title>
+
+  <meta content="FAQ with detailed responses for VoiceBase features and integrations" name="description">
+  <meta content="VoiceBase Query Language Guide, VBQL, Analytics Workbench" name="keywords">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+       <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-18590358-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '253983637');
+</script>
+	<style>
+
+	#bigFont {
+    font-family: "Montserrat:wght600&display=swap", sans-serif;
+		font-size: 26px;
+    color:#233E60;
+
+	}
+  #matchColor {
+    background: linear-gradient(to right, #081433 0%, #233E60 100%);
+  }
+   #matchColorNew {
+    background: white;
+  }
+
+  a {
+    color:#233E60;
+  }
+  h4 { font-family: Montserrat:wght600&display=swap; color:#233E60; }
+  
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-inverse" id = "matchColorNew">
+		<div class="container">
+			<div class="navbar-header">
+     
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>	
+                  <a class="nav navbar-brand" ></a>
+            <img class="img-responsive" src="logo2.png" style="height:30px; margin-top: 11px">
+          </div>
+       <div class="collapse navbar-collapse" id="myNavbar">
+       <ul class="nav navbar-nav" id="bigFont">
+      <!--  <li><img class="img-responsive" src="logo.png" style="height:30px; margin-top: 11px"></li> -->
+       <li><a id = "bigFont"  href="index.html">Help Center</a></li>
+       </ul>
+      <ul class="nav navbar-nav navbar-right">
+            <!-- <li class="active"><a href="index.html">Home</a></li> -->
+            <li><a style = "color:#233E60; font-size: 16px;"href="https://knowledge.liveperson.com/tenfold-voicebase-support/">Talk to Support</a></li>
+             <li><a style = "color:#233E60; font-size: 16px;"href="http://status.voicebase.com/">System Status</a></li>
+             <li><a style = "color:#233E60; font-size: 16px;"href="https://www.voicebase.com">voicebase.com</a></li>
+		
+            </ul>
+            </div>
+        </div>
+    </nav> 
+    <div class="container">
+        <div class="row">
+      <div class="col-md-12">
+      <h4 style="text-align: center">Analytics 101</h4>
+        <hr>
+      </div> 
+      </div>
+	    <div class="row">
+<div class = "col-md-12">
+           <h4>Know your data</h4>
+           <p>Voice Analytics is most successful when based on a deep understanding of your data. When onboarding, you will upload your Media and metadata through a secure data bucket in VoiceBase. Once your initial data has been uploaded, the audio and metadata are accessible through the VoiceBase API, and will automatically begin processing. The first layer of processing uses VoiceBase AI powered analytics engine and Natural Language Processing (NLP) to provide Transcriptions, Redactions and Metrics.The second layer of processing is the Knowledge Extraction layer. This is where all new data added to your secure data bucket going forward is processed with the Categories that you’ll create (more on Categories later).
+            <br>For voice data, take the time to listen to a few calls and read the transcriptions. Recorded and scripted speech is a great place to start as the verbiage is very consistent. Once you’ve seen for yourself how speech and Transcription can differ, you can also start to understand the principle of Indicative Language. Indicative Language is a method of using the context around the keywords to understand what the speaker was saying. By paying attention to the terms, tenses and phrases surrounding the targeted keywords, you can better understand how to build a robust and comprehensive query, which will ultimately help you build better Voice Analytics Categories.    
+Tip: If there are keywords like brands, names, and other unique words that tend to be mis-transcribed you can add the words to the Keyword List (a.k.a. Custom Vocabulary List) to introduce the words to the Transcription engine. 
+
+          </p><br>
+          <h4>Business Goals</h4>
+          <p>    
+Your Business Goals will determine how you want to analyze your voice and speech data. You will apply the nuances of your Business Goals by creating robust and fine-tuned Categories, specific to the analysis outcomes you need from your voice or messaging data. There are many different types of Categories that can be written in VBQL.<br>         
+We break these items down into 3 types:
+<ul class = "center">       
+<li>Checkpoints </li>
+<li>Alerts</li>
+<li>Concepts </li>
+</ul>
+<br>         
+Some Categories act as mandatory <strong>Checkpoints</strong> you’d expect to happen in a conversation. For example, a greeting might be expected for all inbound calls or messages. That greeting should also be branded. These tasks are triggers to ensure something either does, or does not, happen during a call. These items are often showcased in scorecards by agent, call center, or other focus. <br> <br>     
+In addition to checkpoints, VBQL also allows the classification of <strong>Alerts</strong>. Alerts are warnings to you around items like holds, transfers, and telecom or confusion issues. They act as flags to help understand why a checkpoint may have been missed or what confounding factors may have influenced the call. Alerts can be quite handy to have access to in real time and are often showcased in monitoring reports and performance-centric dashboards. <br><br>         
+The final category type covers <strong>Concepts</strong>. Concepts encompass products, services, emotions, and other noteworthy events within speech or messaging analytics. Concepts themselves may have natural hierarchies and relationships, such as actions and products/services. Someone may call for a refund around a product or to cancel a service. The specific service (“voicemail”) may be a part of a package of offerings (“call plan”) with a set number of actions (“cancel” or “upgrade”). All quoted items are examples of concepts we’d want to see in relation to each other. Often, concepts may make up a series of analyses and dashboards to delve into the intricacies and relationships. Organization of concepts into natural buckets or hierarchies improves their ease of use.<br>
+<br>
+Similarly, it’s important to understand how the data returned from the Category will be used. There are many dashboards that can illustrate and track business goals. It’s important to craft your Categories with an idea in mind of who or what will be utilizing the data.        
+Tip: Keep the size of your Voice Data Library and how sensitive your Queries are in mind when deciding to opt for immediate alerts. Things that are statistically rare can happen more than you would expect with a large data stream. For this and other reasons we recommend reports and dashboards over simple alerts.</p>
+<br>
+<h4>Discovery</h4>           
+<p>Ultimately, one of the main goals of setting up an effective Voice Analytics system with VoiceBase is creating your customized and robust Categories. The first phase of category development is searching for Anchor Words and Variant Words. Searching for these provides a window into the Indicative Language around what you are searching for. This data is important when making comprehensive Categories.   
+The goal during this phase is to collect as much data about the Category requirements and discovering new variants.       
+</p><br>
+<h4>Explore and Iterate</h4>
+<p>Two of the keys to creating effective Queries and Categories are breaking ideas down into discrete pieces of logic and testing each piece as you make changes.<br>For example, when building a Query or Category around appointment setting we can break down the Query into several pieces: looking for words pertaining to appointments, setting a time, and verbiage indicating “going to” or “coming into” a location. By writing and testing them as individual Queries more of the Queries can be reused, testing becomes easier, and we can still use operators ( AND, OR, &&, ||, etc. ) to combine these Queries into more robust Categories that we can save to run automatically when new data comes in.     
+Testing as you make changes to Queries helps identify which Word Variants and phrases are most important to the Query and reviewing the results can lead to discovering even more ways the same concept can be expressed. 
+Tip: There are also many other things you can look at besides the words in the media: the amount of silence, intensity ( indicated as CAPITALIZED words in the Transcription ), timing, and other metadata, all of which is accessible in Queries and Results. </p>
+
+
+</div>
+</div>
+</div>
+
+
+
+     <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/1701619.js"></script>
+    </body>
+ </html>  
+
+
+
