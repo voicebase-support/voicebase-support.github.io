@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>How-To: Navigate the VoiceBase app </title>
+    <meta content="How to navigate your new account with VoiceBase" name="description">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+				<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-18590358-1"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', '253983637');
+</script>
+	<style>
+	<style>
+
+	#bigFont {
+		font-family: "Montserrat:wght600&display=swap", sans-serif;
+		font-size: 26px;
+		color:#233E60;
+
+	}
+	#matchColorNew {
+		background: white;
+	}
+	#matchColor {
+		background: linear-gradient(to right, #081433 0%, #233E60 100%);
+	}
+ .center {
+	/*text-align: center;*/
+	list-style-position: inside;
+	color:#000000;
+}
+ol.center li
+{
+	color: #000000;
+ text-align: left;
+
+ font-size: 16px;
+}
+.inlineList {
+	 list-style: none; display: inline; }
+}
+.inlineList.after { content: " \00b7"; }
+.inlineList.last-child.after { content: none; }
+
+	h3 { font-family: Montserrat:wght600&display=swap; color:#233E60; }
+	h4 { font-family: Montserrat:wght600&display=swap; color:#233E60; }
+	p {color:#000000;font-size: 16px;}
+	ul {color:#000000;font-size: 16px;}
+	a {color:#0000CD;}
+	
+
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-inverse" id = "matchColorNew">
+		<div class="container">
+			<div class="navbar-header">
+     
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>	
+                  <a class="nav navbar-brand" ></a>
+            <img class="img-responsive" src="logo2.png" style="height:30px; margin-top: 11px">
+          </div>
+       <div class="collapse navbar-collapse" id="myNavbar">
+       <ul class="nav navbar-nav" id="bigFont">
+      <!--  <li><img class="img-responsive" src="logo.png" style="height:30px; margin-top: 11px"></li> -->
+       <li><a id = "bigFont"  href="index.html">Help Center</a></li>
+       </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+						<li><a style = "color:#233E60; font-size: 16px;"href="https://knowledge.liveperson.com/tenfold-voicebase-support/">Talk to Support</a></li>
+				
+						 <li><a style = "color:#233E60; font-size: 16px;"href="http://status.voicebase.com/">System Status</a></li>
+						 <li><a style = "color:#233E60; font-size: 16px;"href="https://www.voicebase.com">voicebase.com</a></li>
+						
+
+						</ul>
+						</div>
+				</div>
+		</nav> 
+		 <div class="container">
+				<div class="row">
+			<div class="col-md-12">
+			<h3 style="text-align: center">"How-to": Navigate the VoiceBase App</h3>
+				<hr>
+			</div> 
+			</div>
+			<div class = "row">
+				<div class = "col-md-12">
+					<h3>Overview</h3>
+		
+					<p class = "center">The VoiceBase app allows users to upload, view, listen to, search, map, filter, and sync data. Users may also create Bearer Tokens and add users to an account. A brief description of each item in the left navigation bar is given below, along with links to additional resources. Please reach out to your account manager if you have further questions.
+
+						</p>
+						<h3>Analyst Tools</h3>
+						<p><strong>Workbench</strong></p>
+						<p>The Analytics Workbench is the UI where data is queried, using the <a href = "https://support.voicebase.com/QuickStartVBQLTutorial.html">VoiceBase Query Language (VBQL).</a></p>
+						<p class = "center">Start with the basic query below, and use "Snippets" for ideas on how to make queries more precise:</p>
+						<img class="img-responsive" src="images/workbench_basic_query.png" alt="workbench screenshot" width="500" height="200">
+						<p><strong>Conversation Search</strong></p>
+						<p>This is a UI for creating queries to search uploaded data, as an alternative to using VBQL. </p>
+						<p><strong>Categories</strong></p>
+						<p><a href = "https://docs.voicebase.com/docs/categories">Categories</a> are saved VBQL queries, used to search data. Categories are key to filtering data in Tableau.
+						<p><strong>Spotting Groups</strong></p>
+						<p>Create quick <a href="https://docs.voicebase.com/docs/keyword-and-phrase-spotting">keyword spotting lists</a> for automatic keyword tagging.</p>	
+
+          		<h3>Manage Data</h3>
+          		
+          		<p><strong>Connections</strong></p>
+          		<p> Set up connections between Analytics Studio and your AWS S3 bucket, LivePerson messaging, or LivePerson chat. Upload media.</p>
+          		<p><strong>Jobs Queue</strong></p>
+          		<p>Options to sync data between your account and Tableau dashboard data.</p>
+          		<p><strong>Custom Vocab List</strong></p>
+          		<p>Create a <a href="https://docs.voicebase.com/docs/custom-vocabulary">list of words</a> to train the speech engine for vocabulary specific to your company or product.</p>
+          		<p><strong>Metadata Mapping</strong></p>
+          		<p>Map <a href="https://support.voicebase.com/indexing_how-to.html">custom metadata</a> to generic fields already indexed in the VoiceBase platform.</p>
+          		<p><strong>Media Browser</strong></p>
+          		<p>Review call status, listen to calls, upload or delete media files.</p>
+          		<p><strong>PCI Flag</strong></p>
+          		<p>List of calls flagged for review.</p>
+
+				 <h3>Settings</h3>
+				 <p><strong>Users</strong></p>
+				 <p>List of all users enabled for this account. Users with Admin privileges may add co-workers here.</p>
+				 <p><strong>My Account</strong></p>
+				 <p>Contact info, Data Settings, Enabled Products, PCI Redaction, list of Predictive Models.</p>
+				 <p><strong>Bearer Tokens</strong></p>
+				 <p>Users may create Bearer Tokens here for use in accessing the <a href="https://docs.voicebase.com/docs/hello-world">VoiceBase API.</a></p>
+
+
+
+			<hr>
+			</div>			
+			</div>
+
+			<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/1701619.js"></script>
+		 </body>
+ </html>     
